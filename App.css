@@ -38,3 +38,137 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+/* Styles for the Phishing Pop-up */
+.phish-popup-overlay {
+  position: fixed; /* Position over everything else */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of all other content */
+}
+
+.phish-popup-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  text-align: center;
+  max-width: 400px; /* Limit width for better readability */
+  width: 90%; /* Responsive width */
+  color: #333;
+}
+
+.phish-popup-content h2 {
+  color: #dc3545; /* Red color for a warning */
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.phish-popup-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.phish-popup-button {
+  /* Inherits some styles from the main button, but let's make it distinct */
+  background-color: #dc3545; /* Red button for dismissal */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.phish-popup-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+.phish-popup-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button-with-arrows {
+  display: flex;
+  align-items: center; /* Vertically align the button and text */
+  gap: 15px; /* Space between the arrows and the button */
+}
+
+.arrow-text {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: bold;
+  white-space: nowrap; /* Prevent "Click Me" from wrapping */
+  display: flex; /* Use flex to align arrow and text */
+  align-items: center;
+  gap: 5px; /* Space between arrow symbol and text */
+}
+
+.threat-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  animation: fadeIn 0.5s ease-in;
+  margin: 20px 0;
+}
+
+.cat-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.speech-bubble {
+  position: relative;
+  background: #ffffff;
+  border: 2px solid #dc3545;
+  border-radius: 15px;
+  padding: 12px;
+  max-width: 200px;
+  text-align: left;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* The tail of the speech bubble */
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 8px 15px 8px 0;
+  border-style: solid;
+  border-color: transparent #ffffff transparent transparent;
+}
+
+.threat-message {
+  font-weight: bold;
+  color: #28a745;
+  font-style: italic;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chicken-message {
+  color: #28a745;
+  font-weight: bold;
+  margin: 10px 0;
+  animation: fadeIn 0.5s ease-in;
+}

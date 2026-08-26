@@ -12,36 +12,42 @@ export const walkStops = [
     blurb:
       "Kick off with the classic shot — Big Ben & the Houses of Parliament glowing gold, the London Eye lit up just behind you.",
     tip: 'Rest your phone against the railing for a steady long exposure of the traffic light-trails on the bridge below.',
+    coords: [51.5008, -0.1195],
   },
   {
     time: '10:15 PM',
     title: 'Jubilee Gardens & the London Eye',
     blurb: 'Follow the South Bank promenade as the Eye slowly turns and glows over the river.',
     tip: "Shoot from the water's edge and time it between boat wakes to catch a clean reflection.",
+    coords: [51.5033, -0.1196],
   },
   {
     time: '10:35 PM',
     title: 'South Bank Boardwalk',
     blurb: 'The riverside walkway past the street performers and book stalls — string lights overhead and the City glowing across the water.',
     tip: '',
+    coords: [51.5063, -0.1091],
   },
   {
     time: '10:50 PM',
     title: 'Millennium Bridge & St Paul’s',
     blurb: "The postcard shot: St Paul's dome floating above the glowing footbridge.",
     tip: 'Stand mid-bridge, brace on the railing, and go long exposure to smooth out anyone walking past.',
+    coords: [51.5081, -0.0985],
   },
   {
     time: '11:05 PM',
     title: 'Borough Market & Southwark Cathedral',
     blurb: "The market closed hours ago — this is just a walk-through, not a stop. Even shuttered, the lantern-lit lanes past Southwark Cathedral are pure movie-set at night.",
     tip: '',
+    coords: [51.5058, -0.0908],
   },
   {
     time: '11:20 PM',
     title: 'The Shard & London Bridge',
     blurb: "Europe's tallest building, lit up like a shard of glass against the sky.",
     tip: '',
+    coords: [51.5045, -0.0865],
   },
   {
     time: '11:40 PM',
@@ -49,6 +55,7 @@ export const walkStops = [
     blurb:
       'The big finish. Get the classic view from the City Hall lawn, then walk up onto the bridge itself for the close-up.',
     tip: 'This is the money shot of the night — give yourselves a full 20 minutes here, no rushing.',
+    coords: [51.5055, -0.0754],
   },
 ];
 
@@ -107,14 +114,17 @@ export const canaryWharfStops = [
   {
     title: 'West India Quay',
     blurb: 'Still dock water turns the skyscrapers into perfect mirror reflections — a long-exposure favorite.',
+    coords: [51.5075, -0.0235],
   },
   {
     title: 'Crossrail Place Roof Garden',
     blurb: 'A glass-canopied garden above the station — unusual and quiet compared to the ground-level glass towers.',
+    coords: [51.5030, -0.0187],
   },
   {
     title: 'A late bite',
     blurb: 'Round it off with dessert or a drink at whatever’s still open — you’ve earned it.',
+    coords: [51.5045, -0.0200],
   },
 ];
 

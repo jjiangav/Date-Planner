@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import './App.css';
+import RouteMap from './RouteMap';
 import {
   dateInfo,
   walkStops,
@@ -231,6 +232,15 @@ function App() {
       </header>
 
       <main>
+        <section className="section">
+          <h2><span className="section-tag">▸ ROUTE</span>The Map</h2>
+          <p className="section-lead">
+            Every stop, in order — gold line is the walk, dashed line is the
+            hop to Canary Wharf.
+          </p>
+          <RouteMap walkStops={walkStops} canaryWharfStops={canaryWharfStops} />
+        </section>
+
         <section className="section">
           <h2><span className="section-tag">▸ SHOOTING MODE</span>The Walk</h2>
           <p className="section-lead">

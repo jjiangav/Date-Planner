@@ -210,7 +210,7 @@ function App() {
 
           <div className="monogram" aria-hidden="true">
             <span>JJ</span>
-            <span className="monogram-amp">&amp;</span>
+            <span className="monogram-amp">+</span>
             <span>ZZ</span>
           </div>
           <p className="eyebrow">A little something I planned for us 🌙</p>

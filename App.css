@@ -175,9 +175,10 @@ main,
 }
 
 .monogram-amp {
-  font-style: italic;
-  color: var(--ink-dim);
-  font-size: 0.9em;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 0.85em;
 }
 
 .eyebrow {

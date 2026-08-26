@@ -1,17 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import RouteMap from './RouteMap';
-import {
-  dateInfo,
-  walkStops,
-  decisionPoints,
-  transitOptions,
-  canaryWharfStops,
-  checklist,
-} from './itinerary';
+import { content } from './itinerary';
 
 const TARGET_DATE = new Date('2026-08-28T22:00:00+01:00');
 const STORAGE_KEY = 'thames-night-walk-checklist';
+const LANG_KEY = 'thames-night-walk-lang';
 
 function useCountdown(target) {
   const [now, setNow] = useState(() => new Date());
@@ -37,6 +31,37 @@ function useClock() {
     return () => clearInterval(id);
   }, []);
   return now;
+}
+
+function useLanguage() {
+  const [lang, setLangState] = useState('en');
+  const [showGate, setShowGate] = useState(false);
+
+  useEffect(() => {
+    let stored = null;
+    try {
+      stored = localStorage.getItem(LANG_KEY);
+    } catch {
+      // ignore read failures (private mode, storage disabled, etc.)
+    }
+    if (stored === 'en' || stored === 'zh') {
+      setLangState(stored);
+    } else {
+      setShowGate(true);
+    }
+  }, []);
+
+  const setLang = (value) => {
+    setLangState(value);
+    setShowGate(false);
+    try {
+      localStorage.setItem(LANG_KEY, value);
+    } catch {
+      // ignore write failures
+    }
+  };
+
+  return { lang, setLang, showGate };
 }
 
 function Stars() {
@@ -71,13 +96,13 @@ function Stars() {
   );
 }
 
-function Hud() {
+function Hud({ lang, onToggleLang }) {
   const now = useClock();
   const time = now.toLocaleTimeString('en-GB', { hour12: false });
 
   return (
-    <div className="hud" aria-hidden="true">
-      <div className="hud-left">
+    <div className="hud">
+      <div className="hud-left" aria-hidden="true">
         <span className="hud-rec">
           <span className="hud-rec-dot" /> REC
         </span>
@@ -85,36 +110,78 @@ function Hud() {
         <span>NIGHT MODE</span>
       </div>
       <div className="hud-right">
-        <span>ISO 3200</span>
-        <span className="hud-sep">·</span>
-        <span>f/2.8</span>
-        <span className="hud-sep">·</span>
-        <span>1/15s</span>
-        <span className="hud-sep">·</span>
-        <span>{time}</span>
-        <span className="hud-sep">·</span>
-        <span>🔋87%</span>
+        <span aria-hidden="true">ISO 3200</span>
+        <span className="hud-sep" aria-hidden="true">·</span>
+        <span aria-hidden="true">f/2.8</span>
+        <span className="hud-sep" aria-hidden="true">·</span>
+        <span aria-hidden="true">1/15s</span>
+        <span className="hud-sep" aria-hidden="true">·</span>
+        <span aria-hidden="true">{time}</span>
+        <span className="hud-sep" aria-hidden="true">·</span>
+        <span aria-hidden="true">🔋87%</span>
+        <span className="hud-sep" aria-hidden="true">·</span>
+        <LangToggle lang={lang} onToggle={onToggleLang} />
       </div>
     </div>
   );
 }
 
-function Countdown() {
+function LangToggle({ lang, onToggle }) {
+  const isZh = lang === 'zh';
+  return (
+    <button
+      type="button"
+      className={`lang-toggle ${isZh ? 'lang-toggle-zh' : ''}`}
+      onClick={() => onToggle(isZh ? 'en' : 'zh')}
+      aria-label={isZh ? 'Switch to English' : '切换到中文'}
+    >
+      <span className="lang-toggle-option">EN</span>
+      <span className="lang-toggle-option">中文</span>
+      <span className="lang-toggle-thumb" />
+    </button>
+  );
+}
+
+function LanguageGate({ onChoose }) {
+  return (
+    <div className="lang-gate-overlay" role="dialog" aria-modal="true" aria-label="Choose a language / 选择语言">
+      <div className="lang-gate-card">
+        <span className="af-bracket af-tl" />
+        <span className="af-bracket af-tr" />
+        <span className="af-bracket af-bl" />
+        <span className="af-bracket af-br" />
+        <p className="lang-gate-eyebrow">JJ + ZZ</p>
+        <div className="lang-gate-buttons">
+          <button type="button" className="lang-gate-button" onClick={() => onChoose('en')}>
+            <span className="lang-gate-code">EN</span>
+            <span className="lang-gate-name">English</span>
+          </button>
+          <button type="button" className="lang-gate-button" onClick={() => onChoose('zh')}>
+            <span className="lang-gate-code">ZH</span>
+            <span className="lang-gate-name">中文</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Countdown({ t }) {
   const { days, hours, minutes, seconds, done } = useCountdown(TARGET_DATE);
 
   if (done) {
-    return <p className="countdown-live">📸 It's happening tonight — have the best walk.</p>;
+    return <p className="countdown-live">{t.countdown.live}</p>;
   }
 
   return (
     <div className="countdown">
-      <span className="countdown-caption">SHUTTER OPENS IN</span>
+      <span className="countdown-caption">{t.countdown.caption}</span>
       <div className="countdown-lcd">
         {[
-          ['days', days],
-          ['hrs', hours],
-          ['min', minutes],
-          ['sec', seconds],
+          [t.countdown.labels.days, days],
+          [t.countdown.labels.hrs, hours],
+          [t.countdown.labels.min, minutes],
+          [t.countdown.labels.sec, seconds],
         ].map(([label, value]) => (
           <div className="countdown-unit" key={label}>
             <span className="countdown-value">{String(value).padStart(2, '0')}</span>
@@ -194,10 +261,14 @@ function Checklist({ items }) {
 }
 
 function App() {
+  const { lang, setLang, showGate } = useLanguage();
+  const t = content[lang];
+
   return (
-    <div className="page">
+    <div className="page" lang={lang === 'zh' ? 'zh-CN' : 'en'}>
+      {showGate && <LanguageGate onChoose={setLang} />}
       <Stars />
-      <Hud />
+      <Hud lang={lang} onToggleLang={setLang} />
 
       <header className="hero">
         <div className="viewfinder">
@@ -211,53 +282,43 @@ function App() {
           <span className="grid-line grid-h2" />
 
           <div className="monogram" aria-hidden="true">
-            <span>JJ</span>
+            <span className="monogram-jj">JJ</span>
             <span className="monogram-amp">+</span>
             <span>ZZ</span>
           </div>
-          <p className="eyebrow">A photo walk, mapped out for us 📸</p>
+          <p className="eyebrow">{t.hero.eyebrow}</p>
           <h1>
-            River Thames
-            <span className="hero-kicker">Night Photography Walk</span>
+            {t.hero.title}
+            <span className="hero-kicker">{t.hero.kicker}</span>
           </h1>
-          <p className="subtitle">
-            {dateInfo.day}, {dateInfo.date} · starting {dateInfo.startTime}
-          </p>
-          <p className="hero-blurb">
-            Westminster → South Bank → Tower Bridge, then off to Canary Wharf
-            to chase skyscrapers. Cameras charged, comfy shoes on.
-          </p>
-          <Countdown />
+          <p className="subtitle">{t.hero.subtitle}</p>
+          <p className="hero-blurb">{t.hero.blurb}</p>
+          <Countdown t={t} />
         </div>
       </header>
 
       <main>
         <section className="section">
-          <h2><span className="section-tag">▸ ROUTE</span>The Map</h2>
-          <p className="section-lead">
-            Every stop, in order — gold line is the walk, dashed line is the
-            hop to Canary Wharf.
-          </p>
-          <RouteMap walkStops={walkStops} canaryWharfStops={canaryWharfStops} />
+          <h2><span className="section-tag">{t.sections.map.tag}</span>{t.sections.map.title}</h2>
+          <p className="section-lead">{t.sections.map.lead}</p>
+          <RouteMap
+            walkStops={t.walkStops}
+            canaryWharfStops={t.canaryWharfStops}
+            ariaLabel={t.mapAriaLabel}
+          />
         </section>
 
         <section className="section">
-          <h2><span className="section-tag">▸ SHOOTING MODE</span>The Walk</h2>
-          <p className="section-lead">
-            Fully dark by 10, so we're leaning into long exposures and city
-            lights instead of chasing sunset color. Rough pace below — no
-            need to rush, the whole point is stopping often.
-          </p>
-          <Timeline stops={walkStops} />
+          <h2><span className="section-tag">{t.sections.walk.tag}</span>{t.sections.walk.title}</h2>
+          <p className="section-lead">{t.sections.walk.lead}</p>
+          <Timeline stops={t.walkStops} />
         </section>
 
         <section className="section">
-          <h2><span className="section-tag">▸ CONTINGENCIES</span>If Plans Change</h2>
-          <p className="section-lead">
-            No script to stick to — here's the fallback for the obvious ones.
-          </p>
+          <h2><span className="section-tag">{t.sections.decisions.tag}</span>{t.sections.decisions.title}</h2>
+          <p className="section-lead">{t.sections.decisions.lead}</p>
           <div className="cards-grid">
-            {decisionPoints.map((point) => (
+            {t.decisionPoints.map((point) => (
               <div className="option-card" key={point.trigger}>
                 <span className="option-icon" aria-hidden="true">
                   {point.icon}
@@ -270,12 +331,10 @@ function App() {
         </section>
 
         <section className="section">
-          <h2><span className="section-tag">▸ TRANSPORT</span>Getting to Canary Wharf</h2>
-          <p className="section-lead">
-            From Tower Bridge, a few ways to get to Canary Wharf:
-          </p>
+          <h2><span className="section-tag">{t.sections.transport.tag}</span>{t.sections.transport.title}</h2>
+          <p className="section-lead">{t.sections.transport.lead}</p>
           <div className="cards-grid">
-            {transitOptions.map((opt) => (
+            {t.transitOptions.map((opt) => (
               <div className="option-card" key={opt.name}>
                 <span className="option-icon" aria-hidden="true">
                   {opt.icon}
@@ -288,10 +347,10 @@ function App() {
         </section>
 
         <section className="section">
-          <h2><span className="section-tag">▸ LOCATION 02</span>Canary Wharf</h2>
-          <p className="section-lead">Skyscrapers and still water to close out the night.</p>
+          <h2><span className="section-tag">{t.sections.canary.tag}</span>{t.sections.canary.title}</h2>
+          <p className="section-lead">{t.sections.canary.lead}</p>
           <div className="cards-grid">
-            {canaryWharfStops.map((stop) => (
+            {t.canaryWharfStops.map((stop) => (
               <div className="option-card" key={stop.title}>
                 <h3>{stop.title}</h3>
                 <p>{stop.blurb}</p>
@@ -301,14 +360,14 @@ function App() {
         </section>
 
         <section className="section">
-          <h2><span className="section-tag">▸ GEAR CHECK</span>Before We Go</h2>
-          <Checklist items={checklist} />
+          <h2><span className="section-tag">{t.sections.checklist.tag}</span>{t.sections.checklist.title}</h2>
+          <Checklist items={t.checklist} />
         </section>
       </main>
 
       <footer className="footer">
         <span className="aperture" aria-hidden="true" />
-        <p>JJ + ZZ — can't wait for Friday.</p>
+        <p>{t.footer}</p>
       </footer>
     </div>
   );

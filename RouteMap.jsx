@@ -12,7 +12,7 @@ function pinIcon(label, variant) {
   });
 }
 
-export default function RouteMap({ walkStops, canaryWharfStops }) {
+export default function RouteMap({ walkStops, canaryWharfStops, ariaLabel }) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
 
@@ -64,5 +64,5 @@ export default function RouteMap({ walkStops, canaryWharfStops }) {
     };
   }, [walkStops, canaryWharfStops]);
 
-  return <div ref={containerRef} className="route-map" role="img" aria-label="Map of the route from Westminster to Tower Bridge, then Canary Wharf" />;
+  return <div ref={containerRef} className="route-map" role="img" aria-label={ariaLabel} />;
 }

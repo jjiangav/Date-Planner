@@ -214,7 +214,10 @@ function App() {
             <span>ZZ</span>
           </div>
           <p className="eyebrow">A photo walk, mapped out for us 📸</p>
-          <h1>Thames Night Photography Walk</h1>
+          <h1>
+            River Thames
+            <span className="hero-kicker">Night Photography Walk</span>
+          </h1>
           <p className="subtitle">
             {dateInfo.day}, {dateInfo.date} · starting {dateInfo.startTime}
           </p>

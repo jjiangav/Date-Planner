@@ -28,6 +28,15 @@ function useCountdown(target) {
   return { days, hours, minutes, seconds, done: diff === 0 };
 }
 
+function useClock() {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return now;
+}
+
 function Stars() {
   const stars = useMemo(
     () =>
@@ -60,6 +69,34 @@ function Stars() {
   );
 }
 
+function Hud() {
+  const now = useClock();
+  const time = now.toLocaleTimeString('en-GB', { hour12: false });
+
+  return (
+    <div className="hud" aria-hidden="true">
+      <div className="hud-left">
+        <span className="hud-rec">
+          <span className="hud-rec-dot" /> REC
+        </span>
+        <span className="hud-sep">·</span>
+        <span>NIGHT MODE</span>
+      </div>
+      <div className="hud-right">
+        <span>ISO 3200</span>
+        <span className="hud-sep">·</span>
+        <span>f/2.8</span>
+        <span className="hud-sep">·</span>
+        <span>1/15s</span>
+        <span className="hud-sep">·</span>
+        <span>{time}</span>
+        <span className="hud-sep">·</span>
+        <span>🔋87%</span>
+      </div>
+    </div>
+  );
+}
+
 function Countdown() {
   const { days, hours, minutes, seconds, done } = useCountdown(TARGET_DATE);
 
@@ -69,17 +106,20 @@ function Countdown() {
 
   return (
     <div className="countdown">
-      {[
-        ['days', days],
-        ['hrs', hours],
-        ['min', minutes],
-        ['sec', seconds],
-      ].map(([label, value]) => (
-        <div className="countdown-unit" key={label}>
-          <span className="countdown-value">{String(value).padStart(2, '0')}</span>
-          <span className="countdown-label">{label}</span>
-        </div>
-      ))}
+      <span className="countdown-caption">SHUTTER OPENS IN</span>
+      <div className="countdown-lcd">
+        {[
+          ['days', days],
+          ['hrs', hours],
+          ['min', minutes],
+          ['sec', seconds],
+        ].map(([label, value]) => (
+          <div className="countdown-unit" key={label}>
+            <span className="countdown-value">{String(value).padStart(2, '0')}</span>
+            <span className="countdown-label">{label}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -94,7 +134,11 @@ function Timeline({ stops }) {
             {i !== stops.length - 1 && <span className="timeline-line" />}
           </div>
           <div className="timeline-card">
-            <span className="timeline-time">{stop.time}</span>
+            <span className="sprockets" aria-hidden="true" />
+            <div className="timeline-card-head">
+              <span className="frame-number">FRAME {String(i + 1).padStart(2, '0')}</span>
+              <span className="timeline-time">{stop.time}</span>
+            </div>
             <h3>{stop.title}</h3>
             <p>{stop.blurb}</p>
             {stop.tip && (
@@ -151,23 +195,40 @@ function App() {
   return (
     <div className="page">
       <Stars />
+      <Hud />
 
       <header className="hero">
-        <p className="eyebrow">A little something I planned for us 🌙</p>
-        <h1>Thames Night Walk</h1>
-        <p className="subtitle">
-          {dateInfo.day}, {dateInfo.date} · starting {dateInfo.startTime}
-        </p>
-        <p className="hero-blurb">
-          Westminster → South Bank → Tower Bridge, then off to Canary Wharf to
-          chase reflections. Cameras charged, comfy shoes on.
-        </p>
-        <Countdown />
+        <div className="viewfinder">
+          <span className="af-bracket af-tl" />
+          <span className="af-bracket af-tr" />
+          <span className="af-bracket af-bl" />
+          <span className="af-bracket af-br" />
+          <span className="grid-line grid-v1" />
+          <span className="grid-line grid-v2" />
+          <span className="grid-line grid-h1" />
+          <span className="grid-line grid-h2" />
+
+          <div className="monogram" aria-hidden="true">
+            <span>JJ</span>
+            <span className="monogram-amp">&amp;</span>
+            <span>ZZ</span>
+          </div>
+          <p className="eyebrow">A little something I planned for us 🌙</p>
+          <h1>Thames Night Photography Walk</h1>
+          <p className="subtitle">
+            {dateInfo.day}, {dateInfo.date} · starting {dateInfo.startTime}
+          </p>
+          <p className="hero-blurb">
+            Westminster → South Bank → Tower Bridge, then off to Canary Wharf to
+            chase reflections. Cameras charged, comfy shoes on.
+          </p>
+          <Countdown />
+        </div>
       </header>
 
       <main>
         <section className="section">
-          <h2>The Walk</h2>
+          <h2><span className="section-tag">▸ SHOOTING MODE</span>The Walk</h2>
           <p className="section-lead">
             Fully dark by 10, so we're leaning into long exposures and city
             lights instead of chasing sunset color. Rough pace below — no
@@ -177,7 +238,7 @@ function App() {
         </section>
 
         <section className="section">
-          <h2>Getting to Canary Wharf</h2>
+          <h2><span className="section-tag">▸ TRANSPORT</span>Getting to Canary Wharf</h2>
           <p className="section-lead">
             From Tower Bridge, a few ways to cross over for round two:
           </p>
@@ -195,7 +256,7 @@ function App() {
         </section>
 
         <section className="section">
-          <h2>Canary Wharf</h2>
+          <h2><span className="section-tag">▸ LOCATION 02</span>Canary Wharf</h2>
           <p className="section-lead">Round two — skyscrapers and still water.</p>
           <div className="cards-grid">
             {canaryWharfStops.map((stop) => (
@@ -208,13 +269,14 @@ function App() {
         </section>
 
         <section className="section">
-          <h2>Before We Go</h2>
+          <h2><span className="section-tag">▸ GEAR CHECK</span>Before We Go</h2>
           <Checklist items={checklist} />
         </section>
       </main>
 
       <footer className="footer">
-        <p>Can't wait for Friday. 🤍</p>
+        <span className="aperture" aria-hidden="true" />
+        <p>JJ + ZZ — can't wait for Friday.</p>
       </footer>
     </div>
   );

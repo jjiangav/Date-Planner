@@ -1,4 +1,4 @@
-# Thames Night Walk 🌙
+# Thames Night Photography Walk 🌙
 
 A little single-page site planning a Friday night photography walk in London:
 Westminster → South Bank → Tower Bridge, then over to Canary Wharf.

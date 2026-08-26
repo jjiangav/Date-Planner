@@ -123,8 +123,8 @@ export const canaryWharfStops = [
   },
   {
     title: 'A late bite',
-    blurb: 'Round it off with dessert or a drink at whatever’s still open — you’ve earned it.',
-    coords: [51.5045, -0.0200],
+    blurb: 'The Sushi Co, right in Canary Wharf, serves until 1–2am on weekends — the reliable option once you land here this late.',
+    coords: [51.5058, -0.0184],
   },
 ];
 

@@ -272,7 +272,7 @@ function App() {
         <section className="section">
           <h2><span className="section-tag">▸ TRANSPORT</span>Getting to Canary Wharf</h2>
           <p className="section-lead">
-            From Tower Bridge, a few ways to cross over for round two:
+            From Tower Bridge, a few ways to get to Canary Wharf:
           </p>
           <div className="cards-grid">
             {transitOptions.map((opt) => (
@@ -289,7 +289,7 @@ function App() {
 
         <section className="section">
           <h2><span className="section-tag">▸ LOCATION 02</span>Canary Wharf</h2>
-          <p className="section-lead">Round two — skyscrapers and still water.</p>
+          <p className="section-lead">Skyscrapers and still water to close out the night.</p>
           <div className="cards-grid">
             {canaryWharfStops.map((stop) => (
               <div className="option-card" key={stop.title}>

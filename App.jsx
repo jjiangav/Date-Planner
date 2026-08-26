@@ -3,6 +3,7 @@ import './App.css';
 import {
   dateInfo,
   walkStops,
+  decisionPoints,
   transitOptions,
   canaryWharfStops,
   checklist,
@@ -238,6 +239,24 @@ function App() {
             need to rush, the whole point is stopping often.
           </p>
           <Timeline stops={walkStops} />
+        </section>
+
+        <section className="section">
+          <h2><span className="section-tag">▸ CONTINGENCIES</span>If Plans Change</h2>
+          <p className="section-lead">
+            No script to stick to — here's the fallback for the obvious ones.
+          </p>
+          <div className="cards-grid">
+            {decisionPoints.map((point) => (
+              <div className="option-card" key={point.trigger}>
+                <span className="option-icon" aria-hidden="true">
+                  {point.icon}
+                </span>
+                <h3>{point.trigger}</h3>
+                <p>{point.action}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="section">

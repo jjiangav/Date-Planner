@@ -34,7 +34,7 @@ export const walkStops = [
   {
     time: '11:05 PM',
     title: 'Borough Market & Southwark Cathedral',
-    blurb: "Market stalls are shuttered, but the lantern-lit lanes around it are pure movie-set at night.",
+    blurb: "The market closed hours ago — this is just a walk-through, not a stop. Even shuttered, the lantern-lit lanes past Southwark Cathedral are pure movie-set at night.",
     tip: '',
   },
   {
@@ -49,6 +49,34 @@ export const walkStops = [
     blurb:
       'The big finish. Get the classic view from the City Hall lawn, then walk up onto the bridge itself for the close-up.',
     tip: 'This is the money shot of the night — give yourselves a full 20 minutes here, no rushing.',
+  },
+];
+
+export const decisionPoints = [
+  {
+    trigger: 'Getting hungry?',
+    action: 'The Anchor Bankside or The Founders Arms — both riverside pubs near Millennium Bridge, serving food until around 11pm on Fridays.',
+    icon: '🍽️',
+  },
+  {
+    trigger: 'Need to sit down?',
+    action: 'Benches at Jubilee Gardens or the steps outside Tate Modern — free river-view seating the whole route.',
+    icon: '🪑',
+  },
+  {
+    trigger: 'Weather turns?',
+    action: 'Duck under Blackfriars Railway Bridge, or into whichever pub is closest — both keep you dry without derailing the night.',
+    icon: '☔',
+  },
+  {
+    trigger: 'Running behind?',
+    action: 'Skip ahead to Tower Bridge — catch the RV1 bus or a Thames Clipper from Bankside Pier instead of walking the rest.',
+    icon: '⏩',
+  },
+  {
+    trigger: 'Want a shorter night?',
+    action: 'Cut the Borough Market detour and go straight from Millennium Bridge to London Bridge — saves about 15 minutes.',
+    icon: '✂️',
   },
 ];
 

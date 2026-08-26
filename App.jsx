@@ -284,7 +284,7 @@ function App() {
           <div className="monogram" aria-hidden="true">
             <span className="monogram-jj">JJ</span>
             <span className="monogram-amp">+</span>
-            <span>ZZ</span>
+            <span className="monogram-zz">ZZ</span>
           </div>
           <p className="eyebrow">{t.hero.eyebrow}</p>
           <h1>

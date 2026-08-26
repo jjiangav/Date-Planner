@@ -219,8 +219,8 @@ function App() {
             {dateInfo.day}, {dateInfo.date} · starting {dateInfo.startTime}
           </p>
           <p className="hero-blurb">
-            Westminster → South Bank → Tower Bridge, then off to Canary Wharf to
-            chase reflections. Cameras charged, comfy shoes on.
+            Westminster → South Bank → Tower Bridge, then off to Canary Wharf
+            to chase skyscrapers. Cameras charged, comfy shoes on.
           </p>
           <Countdown />
         </div>

@@ -1,71 +1,221 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import './App.css';
-import maximusImg from './Maximus.JPG';
+import {
+  dateInfo,
+  walkStops,
+  transitOptions,
+  canaryWharfStops,
+  checklist,
+} from './itinerary';
 
-function App() {
-  const [number, setNumber] = useState(0);
-  const [showPhishPopup, setShowPhishPopup] = useState(false); // New state for popup visibility
-  const [showThreat, setShowThreat] = useState(false); // State for the second phase of the "attack"
-  const [showChicken, setShowChicken] = useState(false); // State for the third phase
-  const [isOkDisabled, setIsOkDisabled] = useState(true); // State for the OK button
+const TARGET_DATE = new Date('2026-08-28T22:00:00+01:00');
+const STORAGE_KEY = 'thames-night-walk-checklist';
 
-  const generateNumber = () => {
-    const newNumber = Math.floor(Math.random() * 100) + 1;
-    setNumber(newNumber);
-    setShowPhishPopup(true); // Show the popup after generating a number
-    setIsOkDisabled(true);
+function useCountdown(target) {
+  const [now, setNow] = useState(() => new Date());
 
-    // Enable the OK button after 3 seconds
-    setTimeout(() => setIsOkDisabled(false), 3000);
-    
-    // Show Maximus and the threat message after 1 second
-    setTimeout(() => setShowThreat(true), 1000);
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
 
-    // Show chicken message after 2 seconds
-    setTimeout(() => setShowChicken(true), 2000);
-  };
+  const diff = Math.max(0, target.getTime() - now.getTime());
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
 
-  const closePhishPopup = () => {
-    setShowPhishPopup(false); // Function to close the popup
-    setShowThreat(false); // Reset the threat state
-    setShowChicken(false); // Reset chicken state
-    setIsOkDisabled(true); // Reset button state
-  };
+  return { days, hours, minutes, seconds, done: diff === 0 };
+}
+
+function Stars() {
+  const stars = useMemo(
+    () =>
+      Array.from({ length: 60 }, (_, i) => ({
+        id: i,
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+        size: Math.random() * 2 + 1,
+        delay: Math.random() * 4,
+      })),
+    []
+  );
 
   return (
-    <div className="container">
-      <h1>Random Number</h1>
-      <div className="number-display">{number}</div>
-      <div className="button-with-arrows">
-        <span className="arrow-text left-arrow">Click Me &#x2192;</span>
-        <button onClick={generateNumber}>Generate New Number</button>
-        <span className="arrow-text right-arrow">&#x2190; Click Me</span>
-      </div>
+    <div className="stars" aria-hidden="true">
+      {stars.map((s) => (
+        <span
+          key={s.id}
+          className="star"
+          style={{
+            top: `${s.top}%`,
+            left: `${s.left}%`,
+            width: `${s.size}px`,
+            height: `${s.size}px`,
+            animationDelay: `${s.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
-      {showPhishPopup && ( // Conditionally render the popup if showPhishPopup is true
-        <div className="phish-popup-overlay">
-          <div className="phish-popup-content">
-            <h2>You have been phished!</h2>
-            <p>Next time do not click strange links.</p>
-            {showThreat && (
-              <div className="threat-container">
-                <img src={maximusImg} alt="Maximus the cat" className="cat-image" />
-                <div className="speech-bubble">
-                  <p className="threat-message">Max says feed him treats or he'll leak your social security number on the dark web</p>
-                </div>
-              </div>
-            )}
-            {showChicken && <p className="chicken-message">Max likes chicken btw^</p>}
-            <button 
-              onClick={closePhishPopup} 
-              className="phish-popup-button" 
-              disabled={isOkDisabled}
-            >
-              {isOkDisabled ? 'Wait...' : 'OK'}
-            </button>
-          </div>
+function Countdown() {
+  const { days, hours, minutes, seconds, done } = useCountdown(TARGET_DATE);
+
+  if (done) {
+    return <p className="countdown-live">📸 It's happening tonight — have the best walk.</p>;
+  }
+
+  return (
+    <div className="countdown">
+      {[
+        ['days', days],
+        ['hrs', hours],
+        ['min', minutes],
+        ['sec', seconds],
+      ].map(([label, value]) => (
+        <div className="countdown-unit" key={label}>
+          <span className="countdown-value">{String(value).padStart(2, '0')}</span>
+          <span className="countdown-label">{label}</span>
         </div>
-      )}
+      ))}
+    </div>
+  );
+}
+
+function Timeline({ stops }) {
+  return (
+    <ol className="timeline">
+      {stops.map((stop, i) => (
+        <li className="timeline-item" key={stop.title}>
+          <div className="timeline-marker">
+            <span className="timeline-dot" />
+            {i !== stops.length - 1 && <span className="timeline-line" />}
+          </div>
+          <div className="timeline-card">
+            <span className="timeline-time">{stop.time}</span>
+            <h3>{stop.title}</h3>
+            <p>{stop.blurb}</p>
+            {stop.tip && (
+              <p className="timeline-tip">
+                <span aria-hidden="true">📸</span> {stop.tip}
+              </p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function Checklist({ items }) {
+  const [checked, setChecked] = useState(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      return saved;
+    } catch {
+      return {};
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(checked));
+    } catch {
+      // ignore write failures (private mode, storage disabled, etc.)
+    }
+  }, [checked]);
+
+  const toggle = (item) => setChecked((c) => ({ ...c, [item]: !c[item] }));
+
+  return (
+    <ul className="checklist">
+      {items.map((item) => (
+        <li key={item}>
+          <label className="checklist-item">
+            <input
+              type="checkbox"
+              checked={!!checked[item]}
+              onChange={() => toggle(item)}
+            />
+            <span className={checked[item] ? 'checked' : ''}>{item}</span>
+          </label>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function App() {
+  return (
+    <div className="page">
+      <Stars />
+
+      <header className="hero">
+        <p className="eyebrow">A little something I planned for us 🌙</p>
+        <h1>Thames Night Walk</h1>
+        <p className="subtitle">
+          {dateInfo.day}, {dateInfo.date} · starting {dateInfo.startTime}
+        </p>
+        <p className="hero-blurb">
+          Westminster → South Bank → Tower Bridge, then off to Canary Wharf to
+          chase reflections. Cameras charged, comfy shoes on.
+        </p>
+        <Countdown />
+      </header>
+
+      <main>
+        <section className="section">
+          <h2>The Walk</h2>
+          <p className="section-lead">
+            Fully dark by 10, so we're leaning into long exposures and city
+            lights instead of chasing sunset color. Rough pace below — no
+            need to rush, the whole point is stopping often.
+          </p>
+          <Timeline stops={walkStops} />
+        </section>
+
+        <section className="section">
+          <h2>Getting to Canary Wharf</h2>
+          <p className="section-lead">
+            From Tower Bridge, a few ways to cross over for round two:
+          </p>
+          <div className="cards-grid">
+            {transitOptions.map((opt) => (
+              <div className="option-card" key={opt.name}>
+                <span className="option-icon" aria-hidden="true">
+                  {opt.icon}
+                </span>
+                <h3>{opt.name}</h3>
+                <p>{opt.detail}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section">
+          <h2>Canary Wharf</h2>
+          <p className="section-lead">Round two — skyscrapers and still water.</p>
+          <div className="cards-grid">
+            {canaryWharfStops.map((stop) => (
+              <div className="option-card" key={stop.title}>
+                <h3>{stop.title}</h3>
+                <p>{stop.blurb}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section">
+          <h2>Before We Go</h2>
+          <Checklist items={checklist} />
+        </section>
+      </main>
+
+      <footer className="footer">
+        <p>Can't wait for Friday. 🤍</p>
+      </footer>
     </div>
   );
 }

@@ -64,8 +64,8 @@ export const transitOptions = [
     icon: '🚇',
   },
   {
-    name: 'Santander Cycles',
-    detail: 'Docking station by Shad Thames — a scenic ~20 min ride past Wapping & Limehouse. Grab bikes in the app before you set off.',
+    name: 'Uber Bike (Lime e-bike)',
+    detail: 'Dockless, so grab one right at Tower Bridge — a scenic ~20 min ride past Wapping & Limehouse straight to Canary Wharf.',
     icon: '🚲',
   },
   {
@@ -95,7 +95,7 @@ export const checklist = [
   'Mini tripod or gorillapod for long exposures',
   'Portable charger',
   'Contactless card / Oyster ready to tap',
-  'Santander Cycles app set up (just in case)',
+  'Uber app updated (for a Lime e-bike, just in case)',
   'Comfy walking shoes',
   'A light jacket — the river breeze picks up at night',
 ];

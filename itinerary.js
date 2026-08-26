@@ -21,8 +21,8 @@ export const walkStops = [
   },
   {
     time: '10:35 PM',
-    title: 'OXO Tower',
-    blurb: 'The Art Deco OXO letters glow overhead — a great wide shot back across the river toward the City.',
+    title: 'South Bank Boardwalk',
+    blurb: 'The riverside walkway past the street performers and book stalls — string lights overhead and the City glowing across the water.',
     tip: '',
   },
   {

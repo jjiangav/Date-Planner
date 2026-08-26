@@ -213,7 +213,7 @@ function App() {
             <span className="monogram-amp">+</span>
             <span>ZZ</span>
           </div>
-          <p className="eyebrow">A photo walk, mapped out for tonight 📸</p>
+          <p className="eyebrow">A photo walk, mapped out for us 📸</p>
           <h1>Thames Night Photography Walk</h1>
           <p className="subtitle">
             {dateInfo.day}, {dateInfo.date} · starting {dateInfo.startTime}

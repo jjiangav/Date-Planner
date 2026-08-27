@@ -8,7 +8,8 @@ const STORAGE_KEY = 'thames-night-walk-checklist';
 const LANG_KEY = 'thames-night-walk-lang';
 
 // Paste the Google Apps Script Web App URL here once deployed (see setup notes).
-const SUGGESTION_ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+const SUGGESTION_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbyr515Uz8nUERBiYjfMo1AyusvfPTJiWD6lrkoyeDy29tTWcGIFJl5B2BLrEay6wfZa/exec';
 
 function useCountdown(target) {
   const [now, setNow] = useState(() => new Date());

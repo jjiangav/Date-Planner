@@ -46,12 +46,10 @@ export const content = {
       suggest: {
         tag: '▸ SUGGEST',
         title: 'Got an Idea?',
-        lead: "Want to add to the plan? Send it my way!",
+        lead: "Want to help add to the plan? Send me some ideas!",
       },
     },
     suggestForm: {
-      categoryFeature: 'A feature for this site',
-      categoryPlace: 'A place to add',
       messagePlaceholder: 'Tell me about it...',
       submit: 'Send',
       sending: 'Sending...',
@@ -237,12 +235,10 @@ export const content = {
       suggest: {
         tag: '▸ 建议',
         title: '有什么想法?',
-        lead: '想在计划里加点什么?发给我吧!',
+        lead: '想帮忙给这个计划加点想法吗?发给我吧!',
       },
     },
     suggestForm: {
-      categoryFeature: '网站功能建议',
-      categoryPlace: '想加的地点',
       messagePlaceholder: '说说看...',
       submit: '发送',
       sending: '发送中...',

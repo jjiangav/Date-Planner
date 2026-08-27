@@ -265,7 +265,6 @@ function Checklist({ items }) {
 }
 
 function SuggestionForm({ t }) {
-  const [category, setCategory] = useState('feature');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('idle');
 
@@ -277,7 +276,7 @@ function SuggestionForm({ t }) {
       await fetch(SUGGESTION_ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
-        body: new URLSearchParams({ type: category, message }),
+        body: new URLSearchParams({ type: 'idea', message }),
       });
       setStatus('sent');
       setMessage('');
@@ -292,28 +291,6 @@ function SuggestionForm({ t }) {
 
   return (
     <form className="suggest-form" onSubmit={handleSubmit}>
-      <div className="suggest-row">
-        <label className="suggest-option">
-          <input
-            type="radio"
-            name="category"
-            value="feature"
-            checked={category === 'feature'}
-            onChange={() => setCategory('feature')}
-          />
-          {t.suggestForm.categoryFeature}
-        </label>
-        <label className="suggest-option">
-          <input
-            type="radio"
-            name="category"
-            value="place"
-            checked={category === 'place'}
-            onChange={() => setCategory('place')}
-          />
-          {t.suggestForm.categoryPlace}
-        </label>
-      </div>
       <textarea
         className="suggest-textarea"
         value={message}

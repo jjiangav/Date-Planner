@@ -510,25 +510,6 @@ main {
   max-width: 480px;
 }
 
-.suggest-row {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-
-.suggest-option {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  color: var(--ink-dim);
-  cursor: pointer;
-}
-
-.suggest-option input {
-  accent-color: var(--gold);
-}
-
 .suggest-textarea {
   width: 100%;
   min-height: 90px;

@@ -49,6 +49,15 @@ export const content = {
         lead: "Want to help add to the plan? Send me some ideas!",
       },
     },
+    userGate: {
+      title: "Who's this?",
+    },
+    passwordGate: {
+      greeting: 'Hi,',
+      placeholder: 'Passphrase',
+      submit: 'Unlock',
+      error: "That's not it — try again?",
+    },
     suggestForm: {
       messagePlaceholder: 'Tell me about it...',
       submit: 'Send',
@@ -237,6 +246,15 @@ export const content = {
         title: '有什么想法?',
         lead: '想帮忙给这个计划加点想法吗?发给我吧!',
       },
+    },
+    userGate: {
+      title: '你是谁呀?',
+    },
+    passwordGate: {
+      greeting: '你好,',
+      placeholder: '暗号',
+      submit: '解锁',
+      error: '不对哦,再试一次?',
     },
     suggestForm: {
       messagePlaceholder: '说说看...',

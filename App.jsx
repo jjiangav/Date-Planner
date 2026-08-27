@@ -6,6 +6,9 @@ import { content } from './itinerary';
 const TARGET_DATE = new Date('2026-08-28T22:00:00+01:00');
 const STORAGE_KEY = 'thames-night-walk-checklist';
 const LANG_KEY = 'thames-night-walk-lang';
+const USER_KEY = 'thames-night-walk-user';
+const UNLOCK_KEY = 'thames-night-walk-unlocked';
+const PASSPHRASE = 'icantwait';
 
 // Paste the Google Apps Script Web App URL here once deployed (see setup notes).
 const SUGGESTION_ENDPOINT =
@@ -37,35 +40,61 @@ function useClock() {
   return now;
 }
 
-function useLanguage() {
+function useOnboarding() {
   const [lang, setLangState] = useState('en');
-  const [showGate, setShowGate] = useState(false);
+  const [user, setUserState] = useState(null);
+  // 'loading' until localStorage is read, then 'lang' | 'user' | 'password' | 'done'
+  const [step, setStep] = useState('loading');
 
   useEffect(() => {
-    let stored = null;
+    let storedLang = null;
+    let storedUser = null;
+    let unlocked = null;
     try {
-      stored = localStorage.getItem(LANG_KEY);
+      storedLang = localStorage.getItem(LANG_KEY);
+      storedUser = localStorage.getItem(USER_KEY);
+      unlocked = localStorage.getItem(UNLOCK_KEY);
     } catch {
       // ignore read failures (private mode, storage disabled, etc.)
     }
-    if (stored === 'en' || stored === 'zh') {
-      setLangState(stored);
-    } else {
-      setShowGate(true);
-    }
+
+    const hasLang = storedLang === 'en' || storedLang === 'zh';
+    const hasUser = storedUser === 'JJ' || storedUser === 'ZZ';
+    if (hasLang) setLangState(storedLang);
+    if (hasUser) setUserState(storedUser);
+
+    if (!hasLang) setStep('lang');
+    else if (!hasUser) setStep('user');
+    else if (unlocked !== 'yes') setStep('password');
+    else setStep('done');
   }, []);
 
-  const setLang = (value) => {
-    setLangState(value);
-    setShowGate(false);
+  const persist = (key, value) => {
     try {
-      localStorage.setItem(LANG_KEY, value);
+      localStorage.setItem(key, value);
     } catch {
       // ignore write failures
     }
   };
 
-  return { lang, setLang, showGate };
+  const setLang = (value) => {
+    setLangState(value);
+    persist(LANG_KEY, value);
+    if (step === 'lang') setStep('user');
+  };
+
+  const setUser = (value) => {
+    setUserState(value);
+    persist(USER_KEY, value);
+    setStep('password');
+  };
+
+  const unlock = () => {
+    persist(UNLOCK_KEY, 'yes');
+    setStep('done');
+  };
+
+  return { lang, setLang, user, setUser, step, unlock };
 }
 
 function Stars() {
@@ -165,6 +194,93 @@ function LanguageGate({ onChoose }) {
             <span className="lang-gate-name">中文</span>
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function PortraitIcon({ variant }) {
+  // Silhouette bust: head + shoulders, with longer hair on the "she" variant.
+  return (
+    <svg className="portrait-icon" viewBox="0 0 64 64" aria-hidden="true">
+      {variant === 'she' && (
+        <path
+          d="M32 8c-11 0-17 7-17 17 0 7 1 11 3 15l-3 9h34l-3-9c2-4 3-8 3-15 0-10-6-17-17-17z"
+          className="portrait-hair"
+        />
+      )}
+      <circle cx="32" cy="23" r="11" className="portrait-head" />
+      <path d="M32 37c-11 0-19 7-19 16v3h38v-3c0-9-8-16-19-16z" className="portrait-body" />
+    </svg>
+  );
+}
+
+function UserGate({ t, onChoose }) {
+  return (
+    <div className="lang-gate-overlay" role="dialog" aria-modal="true" aria-label={t.userGate.title}>
+      <div className="lang-gate-card">
+        <span className="af-bracket af-tl" />
+        <span className="af-bracket af-tr" />
+        <span className="af-bracket af-bl" />
+        <span className="af-bracket af-br" />
+        <p className="lang-gate-eyebrow">{t.userGate.title}</p>
+        <div className="lang-gate-buttons">
+          <button type="button" className="lang-gate-button" onClick={() => onChoose('JJ')}>
+            <PortraitIcon variant="he" />
+            <span className="lang-gate-name">JJ</span>
+          </button>
+          <button type="button" className="lang-gate-button" onClick={() => onChoose('ZZ')}>
+            <PortraitIcon variant="she" />
+            <span className="lang-gate-name">ZZ</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PasswordGate({ t, user, onUnlock }) {
+  const [value, setValue] = useState('');
+  const [wrong, setWrong] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (value.trim().toLowerCase() === PASSPHRASE) {
+      onUnlock();
+    } else {
+      setWrong(true);
+      setValue('');
+    }
+  };
+
+  return (
+    <div className="lang-gate-overlay" role="dialog" aria-modal="true" aria-label={t.passwordGate.title}>
+      <div className="lang-gate-card">
+        <span className="af-bracket af-tl" />
+        <span className="af-bracket af-tr" />
+        <span className="af-bracket af-bl" />
+        <span className="af-bracket af-br" />
+        <p className="lang-gate-eyebrow">
+          {t.passwordGate.greeting} {user}
+        </p>
+        <form className="password-form" onSubmit={handleSubmit}>
+          <input
+            type="password"
+            className="password-input"
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+              setWrong(false);
+            }}
+            placeholder={t.passwordGate.placeholder}
+            aria-label={t.passwordGate.placeholder}
+            autoFocus
+          />
+          <button type="submit" className="password-submit">
+            {t.passwordGate.submit}
+          </button>
+          {wrong && <p className="password-error">{t.passwordGate.error}</p>}
+        </form>
       </div>
     </div>
   );
@@ -308,12 +424,14 @@ function SuggestionForm({ t }) {
 }
 
 function App() {
-  const { lang, setLang, showGate } = useLanguage();
+  const { lang, setLang, user, setUser, step, unlock } = useOnboarding();
   const t = content[lang];
 
   return (
     <div className="page" lang={lang === 'zh' ? 'zh-CN' : 'en'}>
-      {showGate && <LanguageGate onChoose={setLang} />}
+      {step === 'lang' && <LanguageGate onChoose={setLang} />}
+      {step === 'user' && <UserGate t={t} onChoose={setUser} />}
+      {step === 'password' && <PasswordGate t={t} user={user} onUnlock={unlock} />}
       <Stars />
       <Hud lang={lang} onToggleLang={setLang} />
 

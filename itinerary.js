@@ -1,3 +1,12 @@
+import westminsterImg from './images/westminster.png';
+import londonEyeImg from './images/london-eye.png';
+import southBankImg from './images/south-bank.png';
+import millenniumBridgeImg from './images/millennium-bridge.png';
+import boroughMarketImg from './images/borough-market.png';
+import shardImg from './images/shard.png';
+import towerBridgeImg from './images/tower-bridge.png';
+import canaryWharfImg from './images/canary-wharf.webp';
+
 export const content = {
   en: {
     hero: {
@@ -73,6 +82,7 @@ export const content = {
           "Kick off with the classic shot — Big Ben & the Houses of Parliament glowing gold, the London Eye lit up just behind you.",
         tip: 'Rest your phone against the railing for a steady long exposure of the traffic light-trails on the bridge below.',
         coords: [51.5008, -0.1195],
+        image: westminsterImg,
       },
       {
         time: '10:15 PM',
@@ -80,6 +90,7 @@ export const content = {
         blurb: 'Follow the South Bank promenade as the Eye slowly turns and glows over the river.',
         tip: "Shoot from the water's edge and time it between boat wakes to catch a clean reflection.",
         coords: [51.5033, -0.1196],
+        image: londonEyeImg,
       },
       {
         time: '10:35 PM',
@@ -87,6 +98,7 @@ export const content = {
         blurb: 'The riverside walkway past the street performers and book stalls — string lights overhead and the City glowing across the water.',
         tip: '',
         coords: [51.5063, -0.1091],
+        image: southBankImg,
       },
       {
         time: '10:50 PM',
@@ -94,6 +106,7 @@ export const content = {
         blurb: "The postcard shot: St Paul's dome floating above the glowing footbridge.",
         tip: 'Stand mid-bridge, brace on the railing, and go long exposure to smooth out anyone walking past.',
         coords: [51.5081, -0.0985],
+        image: millenniumBridgeImg,
       },
       {
         time: '11:05 PM',
@@ -101,6 +114,7 @@ export const content = {
         blurb: "The market closed hours ago — this is just a walk-through, not a stop. Even shuttered, the lantern-lit lanes past Southwark Cathedral are pure movie-set at night.",
         tip: '',
         coords: [51.5058, -0.0908],
+        image: boroughMarketImg,
       },
       {
         time: '11:20 PM',
@@ -108,6 +122,7 @@ export const content = {
         blurb: "Europe's tallest building, lit up like a shard of glass against the sky.",
         tip: '',
         coords: [51.5045, -0.0865],
+        image: shardImg,
       },
       {
         time: '11:40 PM',
@@ -116,6 +131,7 @@ export const content = {
           'The big finish. Get the classic view from the City Hall lawn, then walk up onto the bridge itself for the close-up.',
         tip: 'This is the money shot of the night — give yourselves a full 20 minutes here, no rushing.',
         coords: [51.5055, -0.0754],
+        image: towerBridgeImg,
       },
     ],
     decisionPoints: [
@@ -172,6 +188,7 @@ export const content = {
         title: 'West India Quay',
         blurb: 'Still dock water turns the skyscrapers into perfect mirror reflections — a long-exposure favorite.',
         coords: [51.5075, -0.0235],
+        image: canaryWharfImg,
       },
       {
         title: 'Crossrail Place Roof Garden',
@@ -270,6 +287,7 @@ export const content = {
         blurb: '经典的第一张照片 — 金光闪闪的大本钟和议会大厦,伦敦眼就在你身后亮着。',
         tip: '把手机靠在栏杆上,给桥下的车流灯轨拍一张稳定的长曝光。',
         coords: [51.5008, -0.1195],
+        image: westminsterImg,
       },
       {
         time: '晚上10:15',
@@ -277,6 +295,7 @@ export const content = {
         blurb: '沿着南岸步道走,伦敦眼缓缓转动,在河面上发着光。',
         tip: '在水边取景,避开船只激起的水波,抓拍一张干净的倒影。',
         coords: [51.5033, -0.1196],
+        image: londonEyeImg,
       },
       {
         time: '晚上10:35',
@@ -284,6 +303,7 @@ export const content = {
         blurb: '沿河的步道,路过街头艺人和旧书摊 — 头顶挂着串灯,对岸的城区灯火通明。',
         tip: '',
         coords: [51.5063, -0.1091],
+        image: southBankImg,
       },
       {
         time: '晚上10:50',
@@ -291,6 +311,7 @@ export const content = {
         blurb: '明信片级别的画面:圣保罗大教堂的穹顶悬浮在这座会发光的步行桥之上。',
         tip: '站在桥中间,靠住栏杆,用长曝光把过路行人虚化掉。',
         coords: [51.5081, -0.0985],
+        image: millenniumBridgeImg,
       },
       {
         time: '晚上11:05',
@@ -298,6 +319,7 @@ export const content = {
         blurb: '市场几小时前就打烊了 — 这里只是路过,不是站点。就算摊位都关着,南华克座堂旁那些灯笼照亮的小巷,夜里看起来也像电影场景。',
         tip: '',
         coords: [51.5058, -0.0908],
+        image: boroughMarketImg,
       },
       {
         time: '晚上11:20',
@@ -305,6 +327,7 @@ export const content = {
         blurb: '欧洲最高的建筑,亮起来就像夜空下的一片玻璃碎片。',
         tip: '',
         coords: [51.5045, -0.0865],
+        image: shardImg,
       },
       {
         time: '晚上11:40',
@@ -312,6 +335,7 @@ export const content = {
         blurb: '压轴大戏。先在市政厅草坪拍经典全景,再走上桥面近距离拍摄。',
         tip: '这是今晚最重要的一张照片 — 留足整整20分钟,不用赶时间。',
         coords: [51.5055, -0.0754],
+        image: towerBridgeImg,
       },
     ],
     decisionPoints: [
@@ -368,6 +392,7 @@ export const content = {
         title: '西印度码头',
         blurb: '平静的码头水面把摩天大楼变成完美的镜面倒影 — 长曝光的绝佳素材。',
         coords: [51.5075, -0.0235],
+        image: canaryWharfImg,
       },
       {
         title: 'Crossrail Place 屋顶花园',

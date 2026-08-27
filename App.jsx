@@ -328,6 +328,9 @@ function Timeline({ stops }) {
               <span className="frame-number">FRAME {String(i + 1).padStart(2, '0')}</span>
               <span className="timeline-time">{stop.time}</span>
             </div>
+            {stop.image && (
+              <img className="timeline-photo" src={stop.image} alt={stop.title} loading="lazy" />
+            )}
             <h3>{stop.title}</h3>
             <p>{stop.blurb}</p>
             {stop.tip && (
@@ -517,6 +520,9 @@ function App() {
           <div className="cards-grid">
             {t.canaryWharfStops.map((stop) => (
               <div className="option-card" key={stop.title}>
+                {stop.image && (
+                  <img className="option-photo" src={stop.image} alt={stop.title} loading="lazy" />
+                )}
                 <h3>{stop.title}</h3>
                 <p>{stop.blurb}</p>
               </div>

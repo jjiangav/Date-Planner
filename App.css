@@ -407,7 +407,8 @@ main {
 
 .timeline-photo {
   display: block;
-  width: 100%;
+  width: 160px;
+  max-width: 45%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   border-radius: 4px;
@@ -472,7 +473,8 @@ main {
 
 .option-photo {
   display: block;
-  width: 100%;
+  width: 120px;
+  max-width: 60%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   border-radius: 4px;

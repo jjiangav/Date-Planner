@@ -32,11 +32,13 @@ export default function RouteMap({ walkStops, canaryWharfStops, ariaLabel }) {
     }).addTo(map);
 
     const walkLatLngs = walkStops.map((s) => s.coords);
-    L.polyline(walkLatLngs, { color: '#f2c879', weight: 3, opacity: 0.85 }).addTo(map);
+    // Last stop is reached by transit, not on foot — draw it as the dashed hop.
+    const onFootLatLngs = walkLatLngs.slice(0, -1);
+    L.polyline(onFootLatLngs, { color: '#f2c879', weight: 3, opacity: 0.85 }).addTo(map);
 
-    const towerBridge = walkStops[walkStops.length - 1].coords;
-    const canaryEntry = canaryWharfStops[0].coords;
-    L.polyline([towerBridge, canaryEntry], {
+    const transitStart = walkStops[walkStops.length - 2].coords;
+    const transitEnd = walkStops[walkStops.length - 1].coords;
+    L.polyline([transitStart, transitEnd], {
       color: '#f2c879',
       weight: 3,
       opacity: 0.5,

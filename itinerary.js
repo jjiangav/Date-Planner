@@ -126,12 +126,21 @@ export const content = {
       },
       {
         time: '11:40 PM',
-        title: 'Tower Bridge — the finale',
+        title: 'Tower Bridge',
         blurb:
           'The big finish. Get the classic view from the City Hall lawn, then walk up onto the bridge itself for the close-up.',
         tip: 'This is the money shot of the night — give yourselves a full 20 minutes here, no rushing.',
         coords: [51.5055, -0.0754],
         image: towerBridgeImg,
+      },
+      {
+        time: '12:20 AM',
+        title: 'Canary Wharf',
+        blurb:
+          'The last frame of the night — glass towers and their mirror image in the still dock water. Exact spots and a late bite are just below.',
+        tip: '',
+        coords: [51.5075, -0.0235],
+        image: canaryWharfImg,
       },
     ],
     decisionPoints: [
@@ -331,11 +340,19 @@ export const content = {
       },
       {
         time: '晚上11:40',
-        title: '塔桥 — 压轴登场',
+        title: '塔桥',
         blurb: '压轴大戏。先在市政厅草坪拍经典全景,再走上桥面近距离拍摄。',
         tip: '这是今晚最重要的一张照片 — 留足整整20分钟,不用赶时间。',
         coords: [51.5055, -0.0754],
         image: towerBridgeImg,
+      },
+      {
+        time: '凌晨12:20',
+        title: '金丝雀码头',
+        blurb: '今晚的最后一帧 — 玻璃大厦和它们在静止码头水面上的倒影。具体拍摄点和深夜小吃就在下面。',
+        tip: '',
+        coords: [51.5075, -0.0235],
+        image: canaryWharfImg,
       },
     ],
     decisionPoints: [

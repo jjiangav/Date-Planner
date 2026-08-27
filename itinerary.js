@@ -43,6 +43,20 @@ export const content = {
         tag: '▸ GEAR CHECK',
         title: 'Before We Go',
       },
+      suggest: {
+        tag: '▸ SUGGEST',
+        title: 'Got an Idea?',
+        lead: "Missing a place, or want something different on this page? Send it my way.",
+      },
+    },
+    suggestForm: {
+      categoryFeature: 'A feature for this site',
+      categoryPlace: 'A place to add',
+      messagePlaceholder: 'Tell me about it...',
+      submit: 'Send',
+      sending: 'Sending...',
+      success: "Sent! I'll take a look 👀",
+      error: "Hmm, that didn't send — try again?",
     },
     walkStops: [
       {
@@ -220,6 +234,20 @@ export const content = {
         tag: '▸ 装备检查',
         title: '出发前',
       },
+      suggest: {
+        tag: '▸ 建议',
+        title: '有什么想法?',
+        lead: '这个页面少了个地方,或者你想要点不一样的?告诉我吧。',
+      },
+    },
+    suggestForm: {
+      categoryFeature: '网站功能建议',
+      categoryPlace: '想加的地点',
+      messagePlaceholder: '说说看...',
+      submit: '发送',
+      sending: '发送中...',
+      success: '已发送!我会看看的 👀',
+      error: '好像没发送成功,再试一次?',
     },
     walkStops: [
       {

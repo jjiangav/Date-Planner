@@ -7,6 +7,9 @@ const TARGET_DATE = new Date('2026-08-28T22:00:00+01:00');
 const STORAGE_KEY = 'thames-night-walk-checklist';
 const LANG_KEY = 'thames-night-walk-lang';
 
+// Paste the Google Apps Script Web App URL here once deployed (see setup notes).
+const SUGGESTION_ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+
 function useCountdown(target) {
   const [now, setNow] = useState(() => new Date());
 
@@ -260,6 +263,72 @@ function Checklist({ items }) {
   );
 }
 
+function SuggestionForm({ t }) {
+  const [category, setCategory] = useState('feature');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState('idle');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!message.trim()) return;
+    setStatus('sending');
+    try {
+      await fetch(SUGGESTION_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new URLSearchParams({ type: category, message }),
+      });
+      setStatus('sent');
+      setMessage('');
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  if (status === 'sent') {
+    return <p className="suggest-success">{t.suggestForm.success}</p>;
+  }
+
+  return (
+    <form className="suggest-form" onSubmit={handleSubmit}>
+      <div className="suggest-row">
+        <label className="suggest-option">
+          <input
+            type="radio"
+            name="category"
+            value="feature"
+            checked={category === 'feature'}
+            onChange={() => setCategory('feature')}
+          />
+          {t.suggestForm.categoryFeature}
+        </label>
+        <label className="suggest-option">
+          <input
+            type="radio"
+            name="category"
+            value="place"
+            checked={category === 'place'}
+            onChange={() => setCategory('place')}
+          />
+          {t.suggestForm.categoryPlace}
+        </label>
+      </div>
+      <textarea
+        className="suggest-textarea"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder={t.suggestForm.messagePlaceholder}
+        rows={3}
+        required
+      />
+      <button type="submit" className="suggest-submit" disabled={status === 'sending'}>
+        {status === 'sending' ? t.suggestForm.sending : t.suggestForm.submit}
+      </button>
+      {status === 'error' && <p className="suggest-error">{t.suggestForm.error}</p>}
+    </form>
+  );
+}
+
 function App() {
   const { lang, setLang, showGate } = useLanguage();
   const t = content[lang];
@@ -362,6 +431,12 @@ function App() {
         <section className="section">
           <h2><span className="section-tag">{t.sections.checklist.tag}</span>{t.sections.checklist.title}</h2>
           <Checklist items={t.checklist} />
+        </section>
+
+        <section className="section">
+          <h2><span className="section-tag">{t.sections.suggest.tag}</span>{t.sections.suggest.title}</h2>
+          <p className="section-lead">{t.sections.suggest.lead}</p>
+          <SuggestionForm t={t} />
         </section>
       </main>
 

@@ -83,7 +83,7 @@ export const content = {
       {
         time: '4:30 PM',
         title: 'Waterstones Gower Street',
-        blurb: '82 Gower Street — an old favourite for browsing shelves and reading together before the night gets going. Open till 9pm if we lose track of time.',
+        blurb: '82 Gower Street — an old favourite for browsing shelves and reading together before the night gets going.',
         icon: '📚',
       },
       {
@@ -323,7 +323,7 @@ export const content = {
       {
         time: '下午4:30',
         title: 'Waterstones 高尔街店',
-        blurb: '地址82 Gower Street — 一起在书架间闲逛、读读书,为今晚开个头。营业到晚上9点,逛久了也不用担心。',
+        blurb: '地址82 Gower Street — 一起在书架间闲逛、读读书,为今晚开个头。',
         icon: '📚',
       },
       {

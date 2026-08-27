@@ -165,7 +165,6 @@ export const content = {
     ],
     checklist: [
       'Phone/camera fully charged + a spare battery',
-      'Mini tripod or gorillapod for long exposures',
       'Portable charger',
       'Contactless card / Oyster ready to tap',
       'Uber app updated (for a Lime e-bike, just in case)',
@@ -341,7 +340,6 @@ export const content = {
     ],
     checklist: [
       '手机/相机电量充满,再带一块备用电池',
-      '迷你三脚架或八爪鱼架,方便长曝光',
       '充电宝',
       '交通卡(Oyster或银行卡)提前备好',
       'Uber App 记得更新(万一要租Lime电动车)',

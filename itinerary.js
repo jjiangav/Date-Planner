@@ -13,7 +13,7 @@ export const content = {
       eyebrow: 'A photo walk, mapped out for us 📸',
       title: 'River Thames',
       kicker: 'Night Photography Walk',
-      subtitle: 'Friday, August 28, 2026 · starting 10:00 PM',
+      subtitle: 'Friday, August 28, 2026 · starting 8:00 PM',
       blurb:
         'Westminster → South Bank → Tower Bridge, then off to Canary Wharf to chase skyscrapers. Cameras charged, comfy shoes on.',
     },
@@ -23,6 +23,11 @@ export const content = {
       live: "📸 It's happening tonight — have the best walk.",
     },
     sections: {
+      preDate: {
+        tag: '▸ BEFORE THE WALK',
+        title: 'Bookshop & Dinner First',
+        lead: 'The plan starts at 4:30 — well before the cameras come out.',
+      },
       map: {
         tag: '▸ ROUTE',
         title: 'The Map',
@@ -31,7 +36,7 @@ export const content = {
       walk: {
         tag: '▸ SHOOTING MODE',
         title: 'The Route',
-        lead: "Fully dark by 10, so we're leaning into long exposures and city lights instead of chasing sunset color. Rough pace below — no need to rush, the whole point is stopping often.",
+        lead: "Sunset's just past by the time we start, so we'll catch the tail of blue hour heading out before it goes properly dark around Millennium Bridge. Rough pace below — no need to rush, the whole point is stopping often.",
       },
       decisions: {
         tag: '▸ CONTINGENCIES',
@@ -74,9 +79,29 @@ export const content = {
       success: "Sent! I'll take a look 👀",
       error: "Hmm, that didn't send — try again?",
     },
+    preDatePlan: [
+      {
+        time: '4:30 PM',
+        title: 'Waterstones Gower Street',
+        blurb: '82 Gower Street — an old favourite for browsing shelves and reading together before the night gets going. Open till 9pm if we lose track of time.',
+        icon: '📚',
+      },
+      {
+        time: '~6:00 PM',
+        title: 'Dinner — pick one',
+        blurb: "Four Seasons or Xu for classic Chinatown Cantonese, or Nan Hotpot / Haidilao if hotpot's more the vibe — all an easy 15–20 min walk from Gower Street.",
+        icon: '🍜',
+      },
+      {
+        time: '8:00 PM',
+        title: 'Down to Westminster',
+        blurb: "From Chinatown it's about 20 minutes to Westminster Bridge — walk it, or hop the Bakerloo/Jubilee line from Piccadilly Circus.",
+        icon: '🚶',
+      },
+    ],
     walkStops: [
       {
-        time: '10:00 PM',
+        time: '8:00 PM',
         title: 'Westminster Bridge',
         blurb:
           "Kick off with the classic shot — Big Ben & the Houses of Parliament glowing gold, the London Eye lit up just behind you.",
@@ -85,7 +110,7 @@ export const content = {
         image: westminsterImg,
       },
       {
-        time: '10:15 PM',
+        time: '8:15 PM',
         title: 'Jubilee Gardens & the London Eye',
         blurb: 'Follow the South Bank promenade as the Eye slowly turns and glows over the river.',
         tip: "Shoot from the water's edge and time it between boat wakes to catch a clean reflection.",
@@ -93,7 +118,7 @@ export const content = {
         image: londonEyeImg,
       },
       {
-        time: '10:35 PM',
+        time: '8:35 PM',
         title: 'South Bank Boardwalk',
         blurb: 'The riverside walkway past the street performers and book stalls — string lights overhead and the City glowing across the water.',
         tip: '',
@@ -101,7 +126,7 @@ export const content = {
         image: southBankImg,
       },
       {
-        time: '10:50 PM',
+        time: '8:50 PM',
         title: 'Millennium Bridge & St Paul’s',
         blurb: "The postcard shot: St Paul's dome floating above the glowing footbridge.",
         tip: 'Stand mid-bridge, brace on the railing, and go long exposure to smooth out anyone walking past.',
@@ -109,7 +134,7 @@ export const content = {
         image: millenniumBridgeImg,
       },
       {
-        time: '11:05 PM',
+        time: '9:05 PM',
         title: 'Borough Market & Southwark Cathedral',
         blurb: "The market closed hours ago — this is just a walk-through, not a stop. Even shuttered, the lantern-lit lanes past Southwark Cathedral are pure movie-set at night.",
         tip: '',
@@ -117,7 +142,7 @@ export const content = {
         image: boroughMarketImg,
       },
       {
-        time: '11:20 PM',
+        time: '9:20 PM',
         title: 'The Shard & London Bridge',
         blurb: "Europe's tallest building, lit up like a shard of glass against the sky.",
         tip: '',
@@ -125,7 +150,7 @@ export const content = {
         image: shardImg,
       },
       {
-        time: '11:40 PM',
+        time: '9:40 PM',
         title: 'Tower Bridge',
         blurb:
           'The big finish. Get the classic view from the City Hall lawn, then walk up onto the bridge itself for the close-up.',
@@ -134,7 +159,7 @@ export const content = {
         image: towerBridgeImg,
       },
       {
-        time: '12:20 AM',
+        time: '10:20 PM',
         title: 'Canary Wharf',
         blurb:
           'The last frame of the night — glass towers and their mirror image in the still dock water. Exact spots and a late bite are just below.',
@@ -228,7 +253,7 @@ export const content = {
       eyebrow: '为我们俩规划的一场夜拍漫步 📸',
       title: '泰晤士河',
       kicker: '夜间摄影漫步',
-      subtitle: '星期五,2026年8月28日 · 晚上10点出发',
+      subtitle: '星期五,2026年8月28日 · 晚上8点出发',
       blurb:
         '从威斯敏斯特桥沿南岸走到塔桥,再转乘地铁或骑车去金丝雀码头追逐摩天大楼夜景。相机电量拉满,鞋子舒服就好。',
     },
@@ -238,6 +263,11 @@ export const content = {
       live: '📸 就是今晚了 — 好好享受这场漫步吧。',
     },
     sections: {
+      preDate: {
+        tag: '▸ 徒步之前',
+        title: '先去书店和晚餐',
+        lead: '整个计划从4:30开始 — 早于相机登场之前。',
+      },
       map: {
         tag: '▸ 路线',
         title: '地图',
@@ -246,7 +276,7 @@ export const content = {
       walk: {
         tag: '▸ 拍摄模式',
         title: '徒步路线',
-        lead: '晚上10点天已经全黑,所以重点是拍长曝光和城市灯光,而不是等日落的色彩。下面的时间只是大致节奏 — 不用赶,重点就是多停下来拍照。',
+        lead: '出发时太阳刚落山不久,所以前段还能赶上蓝调时刻的尾巴,到千禧桥附近天就彻底黑透了。下面的时间只是大致节奏 — 不用赶,重点就是多停下来拍照。',
       },
       decisions: {
         tag: '▸ 备选方案',
@@ -289,9 +319,29 @@ export const content = {
       success: '已发送!我会看看的 👀',
       error: '好像没发送成功,再试一次?',
     },
+    preDatePlan: [
+      {
+        time: '下午4:30',
+        title: 'Waterstones 高尔街店',
+        blurb: '地址82 Gower Street — 一起在书架间闲逛、读读书,为今晚开个头。营业到晚上9点,逛久了也不用担心。',
+        icon: '📚',
+      },
+      {
+        time: '约晚上6:00',
+        title: '晚餐 — 任选一家',
+        blurb: '想吃经典粤菜可以去 Four Seasons 或 Xu,想吃火锅就去 Nan Hotpot 或海底捞 — 从高尔街走过去都只要15-20分钟。',
+        icon: '🍜',
+      },
+      {
+        time: '晚上8:00',
+        title: '前往威斯敏斯特',
+        blurb: '从唐人街到威斯敏斯特桥大约20分钟 — 走过去,或者从皮卡迪利广场搭Bakerloo/Jubilee线都行。',
+        icon: '🚶',
+      },
+    ],
     walkStops: [
       {
-        time: '晚上10:00',
+        time: '晚上8:00',
         title: '威斯敏斯特桥',
         blurb: '经典的第一张照片 — 金光闪闪的大本钟和议会大厦,伦敦眼就在你身后亮着。',
         tip: '把手机靠在栏杆上,给桥下的车流灯轨拍一张稳定的长曝光。',
@@ -299,7 +349,7 @@ export const content = {
         image: westminsterImg,
       },
       {
-        time: '晚上10:15',
+        time: '晚上8:15',
         title: '朱比利花园与伦敦眼',
         blurb: '沿着南岸步道走,伦敦眼缓缓转动,在河面上发着光。',
         tip: '在水边取景,避开船只激起的水波,抓拍一张干净的倒影。',
@@ -307,7 +357,7 @@ export const content = {
         image: londonEyeImg,
       },
       {
-        time: '晚上10:35',
+        time: '晚上8:35',
         title: '南岸木栈道',
         blurb: '沿河的步道,路过街头艺人和旧书摊 — 头顶挂着串灯,对岸的城区灯火通明。',
         tip: '',
@@ -315,7 +365,7 @@ export const content = {
         image: southBankImg,
       },
       {
-        time: '晚上10:50',
+        time: '晚上8:50',
         title: '千禧桥与圣保罗大教堂',
         blurb: '明信片级别的画面:圣保罗大教堂的穹顶悬浮在这座会发光的步行桥之上。',
         tip: '站在桥中间,靠住栏杆,用长曝光把过路行人虚化掉。',
@@ -323,7 +373,7 @@ export const content = {
         image: millenniumBridgeImg,
       },
       {
-        time: '晚上11:05',
+        time: '晚上9:05',
         title: '博罗市场与南华克座堂',
         blurb: '市场几小时前就打烊了 — 这里只是路过,不是站点。就算摊位都关着,南华克座堂旁那些灯笼照亮的小巷,夜里看起来也像电影场景。',
         tip: '',
@@ -331,7 +381,7 @@ export const content = {
         image: boroughMarketImg,
       },
       {
-        time: '晚上11:20',
+        time: '晚上9:20',
         title: '碎片大厦与伦敦桥',
         blurb: '欧洲最高的建筑,亮起来就像夜空下的一片玻璃碎片。',
         tip: '',
@@ -339,7 +389,7 @@ export const content = {
         image: shardImg,
       },
       {
-        time: '晚上11:40',
+        time: '晚上9:40',
         title: '塔桥',
         blurb: '压轴大戏。先在市政厅草坪拍经典全景,再走上桥面近距离拍摄。',
         tip: '这是今晚最重要的一张照片 — 留足整整20分钟,不用赶时间。',
@@ -347,7 +397,7 @@ export const content = {
         image: towerBridgeImg,
       },
       {
-        time: '凌晨12:20',
+        time: '晚上10:20',
         title: '金丝雀码头',
         blurb: '今晚的最后一帧 — 玻璃大厦和它们在静止码头水面上的倒影。具体拍摄点和深夜小吃就在下面。',
         tip: '',

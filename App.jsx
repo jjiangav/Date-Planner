@@ -3,7 +3,7 @@ import './App.css';
 import RouteMap from './RouteMap';
 import { content } from './itinerary';
 
-const TARGET_DATE = new Date('2026-08-28T22:00:00+01:00');
+const TARGET_DATE = new Date('2026-08-28T20:00:00+01:00');
 const STORAGE_KEY = 'thames-night-walk-checklist';
 const LANG_KEY = 'thames-night-walk-lang';
 const USER_KEY = 'thames-night-walk-user';
@@ -459,6 +459,22 @@ function App() {
       </header>
 
       <main>
+        <section className="section">
+          <h2><span className="section-tag">{t.sections.preDate.tag}</span>{t.sections.preDate.title}</h2>
+          <p className="section-lead">{t.sections.preDate.lead}</p>
+          <div className="cards-grid">
+            {t.preDatePlan.map((step) => (
+              <div className="option-card" key={step.title}>
+                <span className="option-icon" aria-hidden="true">
+                  {step.icon}
+                </span>
+                <h3>{step.time} — {step.title}</h3>
+                <p>{step.blurb}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className="section">
           <h2><span className="section-tag">{t.sections.map.tag}</span>{t.sections.map.title}</h2>
           <p className="section-lead">{t.sections.map.lead}</p>

@@ -21,7 +21,7 @@ export const content = {
       },
       walk: {
         tag: '▸ SHOOTING MODE',
-        title: 'The Walk',
+        title: 'The Route',
         lead: "Fully dark by 10, so we're leaning into long exposures and city lights instead of chasing sunset color. Rough pace below — no need to rush, the whole point is stopping often.",
       },
       decisions: {

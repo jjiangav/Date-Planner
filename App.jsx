@@ -317,7 +317,7 @@ function App() {
         <section className="section">
           <h2><span className="section-tag">{t.sections.decisions.tag}</span>{t.sections.decisions.title}</h2>
           <p className="section-lead">{t.sections.decisions.lead}</p>
-          <div className="cards-grid cards-grid-row">
+          <div className="cards-grid-triad">
             {t.decisionPoints.map((point) => (
               <div className="option-card" key={point.trigger}>
                 <span className="option-icon" aria-hidden="true">

@@ -1,10 +1,10 @@
-import westminsterImg from './images/westminster.png';
-import londonEyeImg from './images/london-eye.png';
-import southBankImg from './images/south-bank.png';
-import millenniumBridgeImg from './images/millennium-bridge.png';
-import boroughMarketImg from './images/borough-market.png';
-import shardImg from './images/shard.png';
-import towerBridgeImg from './images/tower-bridge.png';
+import westminsterImg from './images/westminster.jpg';
+import londonEyeImg from './images/london-eye.jpg';
+import southBankImg from './images/south-bank.jpg';
+import millenniumBridgeImg from './images/millennium-bridge.jpg';
+import boroughMarketImg from './images/borough-market.jpg';
+import shardImg from './images/shard.jpg';
+import towerBridgeImg from './images/tower-bridge.jpg';
 import canaryWharfImg from './images/canary-wharf.webp';
 
 export const content = {

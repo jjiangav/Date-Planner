@@ -46,7 +46,7 @@ export const content = {
       suggest: {
         tag: '▸ SUGGEST',
         title: 'Got an Idea?',
-        lead: "Missing a place, or want something different on this page? Send it my way.",
+        lead: "Want to add to the plan? Send it my way!",
       },
     },
     suggestForm: {
@@ -237,7 +237,7 @@ export const content = {
       suggest: {
         tag: '▸ 建议',
         title: '有什么想法?',
-        lead: '这个页面少了个地方,或者你想要点不一样的?告诉我吧。',
+        lead: '想在计划里加点什么?发给我吧!',
       },
     },
     suggestForm: {

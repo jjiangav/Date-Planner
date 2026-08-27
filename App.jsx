@@ -135,26 +135,19 @@ function Hud({ lang, onToggleLang }) {
 
   return (
     <div className="hud">
-      <div className="hud-left" aria-hidden="true">
-        <span className="hud-rec">
-          <span className="hud-rec-dot" /> REC
-        </span>
-        <span className="hud-sep hud-mobile-hide">·</span>
-        <span className="hud-mobile-hide">NIGHT MODE</span>
-      </div>
-      <div className="hud-right">
-        <span aria-hidden="true">ISO 3200</span>
-        <span className="hud-sep" aria-hidden="true">·</span>
-        <span aria-hidden="true">f/2.8</span>
-        <span className="hud-sep" aria-hidden="true">·</span>
-        <span aria-hidden="true">1/15s</span>
-        <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
-        <span className="hud-mobile-hide" aria-hidden="true">{time}</span>
-        <span className="hud-sep" aria-hidden="true">·</span>
-        <span aria-hidden="true">🔋87%</span>
-        <span className="hud-sep" aria-hidden="true">·</span>
-        <LangToggle lang={lang} onToggle={onToggleLang} />
-      </div>
+      <span className="hud-mobile-hide" aria-hidden="true">NIGHT MODE</span>
+      <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
+      <span aria-hidden="true">ISO 3200</span>
+      <span className="hud-sep" aria-hidden="true">·</span>
+      <span aria-hidden="true">f/2.8</span>
+      <span className="hud-sep" aria-hidden="true">·</span>
+      <span aria-hidden="true">1/15s</span>
+      <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
+      <span className="hud-mobile-hide" aria-hidden="true">{time}</span>
+      <span className="hud-sep" aria-hidden="true">·</span>
+      <span aria-hidden="true">🔋87%</span>
+      <span className="hud-sep" aria-hidden="true">·</span>
+      <LangToggle lang={lang} onToggle={onToggleLang} />
     </div>
   );
 }

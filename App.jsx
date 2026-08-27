@@ -106,8 +106,8 @@ function Hud({ lang, onToggleLang }) {
         <span className="hud-rec">
           <span className="hud-rec-dot" /> REC
         </span>
-        <span className="hud-sep">·</span>
-        <span>NIGHT MODE</span>
+        <span className="hud-sep hud-mobile-hide">·</span>
+        <span className="hud-mobile-hide">NIGHT MODE</span>
       </div>
       <div className="hud-right">
         <span aria-hidden="true">ISO 3200</span>
@@ -115,8 +115,8 @@ function Hud({ lang, onToggleLang }) {
         <span aria-hidden="true">f/2.8</span>
         <span className="hud-sep" aria-hidden="true">·</span>
         <span aria-hidden="true">1/15s</span>
-        <span className="hud-sep" aria-hidden="true">·</span>
-        <span aria-hidden="true">{time}</span>
+        <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
+        <span className="hud-mobile-hide" aria-hidden="true">{time}</span>
         <span className="hud-sep" aria-hidden="true">·</span>
         <span aria-hidden="true">🔋87%</span>
         <span className="hud-sep" aria-hidden="true">·</span>
@@ -282,9 +282,9 @@ function App() {
           <span className="grid-line grid-h2" />
 
           <div className="monogram" aria-hidden="true">
-            <span className="monogram-jj">JJ</span>
+            <span>JJ</span>
             <span className="monogram-amp">+</span>
-            <span className="monogram-zz">ZZ</span>
+            <span>ZZ</span>
           </div>
           <p className="eyebrow">{t.hero.eyebrow}</p>
           <h1>
@@ -317,7 +317,7 @@ function App() {
         <section className="section">
           <h2><span className="section-tag">{t.sections.decisions.tag}</span>{t.sections.decisions.title}</h2>
           <p className="section-lead">{t.sections.decisions.lead}</p>
-          <div className="cards-grid">
+          <div className="cards-grid cards-grid-row">
             {t.decisionPoints.map((point) => (
               <div className="option-card" key={point.trigger}>
                 <span className="option-icon" aria-hidden="true">
@@ -333,7 +333,7 @@ function App() {
         <section className="section">
           <h2><span className="section-tag">{t.sections.transport.tag}</span>{t.sections.transport.title}</h2>
           <p className="section-lead">{t.sections.transport.lead}</p>
-          <div className="cards-grid">
+          <div className="cards-grid cards-grid-row">
             {t.transitOptions.map((opt) => (
               <div className="option-card" key={opt.name}>
                 <span className="option-icon" aria-hidden="true">

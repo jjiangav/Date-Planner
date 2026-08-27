@@ -174,16 +174,6 @@ main,
   background: rgba(242, 200, 121, 0.06);
 }
 
-.monogram-jj {
-  font-family: 'Times New Roman', Times, 'Noto Serif', serif;
-  font-weight: 700;
-}
-
-.monogram-zz {
-  font-family: 'Pacifico', 'Brush Script MT', cursive;
-  font-size: 1.2em;
-}
-
 .monogram-amp {
   font-family: var(--mono);
   font-weight: 700;
@@ -438,6 +428,15 @@ main {
   gap: 1rem;
 }
 
+.cards-grid-row {
+  grid-template-columns: none;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(150px, 1fr);
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
 .option-card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -602,6 +601,17 @@ main {
 
   .hud {
     font-size: 0.62rem;
+    padding: 0.5rem 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .hud-left,
+  .hud-right {
+    gap: 0.35rem;
+  }
+
+  .hud-mobile-hide {
+    display: none;
   }
 
   .route-map {

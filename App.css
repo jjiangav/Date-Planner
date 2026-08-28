@@ -585,6 +585,9 @@ main {
 }
 
 .aperture-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.5rem;
   margin: -0.5rem;
   background: none;

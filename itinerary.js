@@ -246,6 +246,12 @@ export const content = {
     ],
     footer: 'JJ + ZZ — can’t wait for Friday.',
     mapAriaLabel: 'Map of the route from Westminster to Tower Bridge, then Canary Wharf',
+    proposal: {
+      question: 'Will you be my girlfriend?',
+      yes: 'Yes',
+      think: "I'll think about it",
+      accepted: "She said yes 🎉",
+    },
   },
 
   zh: {
@@ -483,5 +489,11 @@ export const content = {
     ],
     footer: 'JJ + ZZ — 期待星期五的到来。',
     mapAriaLabel: '从威斯敏斯特到塔桥,再到金丝雀码头的路线地图',
+    proposal: {
+      question: '你愿意做我女朋友吗?',
+      yes: '愿意',
+      think: '让我再想想',
+      accepted: '她答应了 🎉',
+    },
   },
 };

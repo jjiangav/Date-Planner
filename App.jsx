@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import './App.css';
 import RouteMap from './RouteMap';
 import { content } from './itinerary';
@@ -187,6 +187,94 @@ function LanguageGate({ onChoose }) {
             <span className="lang-gate-name">中文</span>
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function HeartRain() {
+  const hearts = useMemo(
+    () =>
+      Array.from({ length: 40 }, (_, i) => ({
+        id: i,
+        left: Math.random() * 100,
+        size: Math.random() * 16 + 14,
+        duration: Math.random() * 2 + 2.5,
+        delay: Math.random() * 1.5,
+        drift: (Math.random() - 0.5) * 60,
+      })),
+    []
+  );
+
+  return (
+    <div className="heart-rain" aria-hidden="true">
+      {hearts.map((h) => (
+        <span
+          key={h.id}
+          className="falling-heart"
+          style={{
+            left: `${h.left}%`,
+            fontSize: `${h.size}px`,
+            animationDuration: `${h.duration}s`,
+            animationDelay: `${h.delay}s`,
+            '--drift': `${h.drift}px`,
+          }}
+        >
+          ♥
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function ProposalModal({ t, open, accepted, onAccept, onClose }) {
+  const [dodge, setDodge] = useState({ x: 0, y: 0 });
+
+  if (!open) return null;
+
+  const runAway = () => {
+    setDodge({
+      x: (Math.random() - 0.5) * 160,
+      y: (Math.random() - 0.5) * 60,
+    });
+  };
+
+  return (
+    <div className="proposal-overlay" role="dialog" aria-modal="true" onClick={onClose}>
+      {accepted && <HeartRain />}
+      <div className="proposal-card" onClick={(e) => e.stopPropagation()}>
+        {!accepted ? (
+          <>
+            <p className="proposal-question">{t.proposal.question}</p>
+            <div className="proposal-buttons">
+              <button type="button" className="proposal-yes" onClick={onAccept}>
+                {t.proposal.yes}
+              </button>
+              <button
+                type="button"
+                className="proposal-think"
+                style={{ transform: `translate(${dodge.x}px, ${dodge.y}px)` }}
+                tabIndex={-1}
+                aria-disabled="true"
+                onMouseEnter={runAway}
+                onTouchStart={(e) => {
+                  e.preventDefault();
+                  runAway();
+                }}
+                onClick={(e) => e.preventDefault()}
+              >
+                {t.proposal.think}
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <p className="proposal-question">{t.proposal.accepted}</p>
+            <button type="button" className="proposal-yes" onClick={onClose}>
+              ♡
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
@@ -422,12 +510,38 @@ function SuggestionForm({ t }) {
 function App() {
   const { lang, setLang, user, setUser, step, unlock } = useOnboarding();
   const t = content[lang];
+  const [proposalOpen, setProposalOpen] = useState(false);
+  const [proposalAccepted, setProposalAccepted] = useState(false);
+  const apertureClicks = useRef([]);
+
+  const closeProposal = () => {
+    setProposalOpen(false);
+    setProposalAccepted(false);
+  };
+
+  const handleApertureClick = () => {
+    const now = Date.now();
+    const recent = apertureClicks.current.filter((ts) => now - ts <= 5000);
+    recent.push(now);
+    apertureClicks.current = recent;
+    if (recent.length >= 5) {
+      apertureClicks.current = [];
+      setProposalOpen(true);
+    }
+  };
 
   return (
     <div className="page" lang={lang === 'zh' ? 'zh-CN' : 'en'}>
       {step === 'lang' && <LanguageGate onChoose={setLang} />}
       {step === 'user' && <UserGate t={t} onChoose={setUser} />}
       {step === 'password' && <PasswordGate t={t} user={user} onUnlock={unlock} />}
+      <ProposalModal
+        t={t}
+        open={proposalOpen}
+        accepted={proposalAccepted}
+        onAccept={() => setProposalAccepted(true)}
+        onClose={closeProposal}
+      />
       <Stars />
       <Hud lang={lang} onToggleLang={setLang} />
 
@@ -552,7 +666,14 @@ function App() {
       </main>
 
       <footer className="footer">
-        <span className="aperture" aria-hidden="true" />
+        <button
+          type="button"
+          className="aperture-btn"
+          aria-label="Aperture"
+          onClick={handleApertureClick}
+        >
+          <span className="aperture" aria-hidden="true" />
+        </button>
         <p>{t.footer}</p>
       </footer>
     </div>

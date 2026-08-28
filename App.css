@@ -592,13 +592,8 @@ main {
   margin: -0.5rem;
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: default;
   border-radius: 50%;
-  transition: transform 0.2s;
-}
-
-.aperture-btn:hover {
-  transform: rotate(25deg) scale(1.1);
 }
 
 .proposal-overlay {

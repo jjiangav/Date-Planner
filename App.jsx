@@ -554,6 +554,12 @@ function App() {
         </div>
       </section>
 
+      <section className="section next-date-section">
+        <h2><span className="section-tag">{t.sections.suggest.tag}</span>{t.sections.suggest.title}</h2>
+        <p className="section-lead">{t.sections.suggest.lead}</p>
+        <SuggestionForm t={t} />
+      </section>
+
       <div className="completed-ribbon">{t.completedBadge}</div>
 
       <div className="completed-trip">
@@ -668,12 +674,6 @@ function App() {
         <section className="section">
           <h2><span className="section-tag">{t.sections.checklist.tag}</span>{t.sections.checklist.title}</h2>
           <Checklist items={t.checklist} />
-        </section>
-
-        <section className="section">
-          <h2><span className="section-tag">{t.sections.suggest.tag}</span>{t.sections.suggest.title}</h2>
-          <p className="section-lead">{t.sections.suggest.lead}</p>
-          <SuggestionForm t={t} />
         </section>
       </main>
       </div>

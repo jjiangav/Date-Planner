@@ -272,6 +272,53 @@ main {
   margin-bottom: 3.5rem;
 }
 
+.next-date-section {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto 3.5rem;
+  padding: 0 1.5rem;
+}
+
+.next-date-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2.75rem 1.5rem;
+  border: 1px dashed rgba(242, 200, 121, 0.35);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--ink-dim);
+}
+
+.next-date-placeholder span {
+  font-size: 2rem;
+}
+
+.completed-ribbon {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin: 0 auto 1.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  background: var(--gold-soft);
+  color: var(--navy-deep);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.completed-trip {
+  position: relative;
+  filter: grayscale(0.9);
+  opacity: 0.55;
+}
+
 .section h2 {
   display: flex;
   flex-direction: column;

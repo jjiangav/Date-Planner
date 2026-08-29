@@ -545,7 +545,19 @@ function App() {
       <Stars />
       <Hud lang={lang} onToggleLang={setLang} />
 
-      <header className="hero">
+      <section className="section next-date-section">
+        <h2><span className="section-tag">{t.nextDate.tag}</span>{t.nextDate.title}</h2>
+        <p className="section-lead">{t.nextDate.subtitle}</p>
+        <div className="next-date-placeholder">
+          <span aria-hidden="true">✈️</span>
+          <p>{t.nextDate.note}</p>
+        </div>
+      </section>
+
+      <div className="completed-ribbon">{t.completedBadge}</div>
+
+      <div className="completed-trip">
+        <header className="hero">
         <div className="viewfinder">
           <span className="af-bracket af-tl" />
           <span className="af-bracket af-tr" />
@@ -664,6 +676,7 @@ function App() {
           <SuggestionForm t={t} />
         </section>
       </main>
+      </div>
 
       <footer className="footer">
         <button

@@ -252,6 +252,13 @@ export const content = {
       think: "I'll think about it",
       accepted: "She said yes 🎉",
     },
+    nextDate: {
+      tag: '▸ NEXT UP',
+      title: 'Singapore',
+      subtitle: 'December 2026',
+      note: 'Planning coming soon...',
+    },
+    completedBadge: '✓ Completed — this one already happened',
   },
 
   zh: {
@@ -495,5 +502,12 @@ export const content = {
       think: '让我再想想',
       accepted: '她答应了 🎉',
     },
+    nextDate: {
+      tag: '▸ 下一站',
+      title: '新加坡',
+      subtitle: '2026年12月',
+      note: '计划制定中...',
+    },
+    completedBadge: '✓ 已完成 — 这次约会已经结束啦',
   },
 };

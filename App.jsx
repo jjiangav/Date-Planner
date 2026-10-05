@@ -168,7 +168,7 @@ function Hud({ lang, onToggleLang }) {
     <div className="hud">
       <span className="hud-mobile-hide" aria-hidden="true">DEPARTURES</span>
       <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
-      <span aria-hidden="true">✈ JZ 1107</span>
+      <span aria-hidden="true">✈ TS122</span>
       <span className="hud-sep" aria-hidden="true">·</span>
       <span aria-hidden="true">TO LON</span>
       <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
@@ -594,7 +594,7 @@ function App() {
           <div className="boarding-pass-stub">
             <dl className="boarding-pass-fields">
               {[
-                ['FLIGHT', 'JZ 1107'],
+                ['FLIGHT', 'TS122'],
                 ['TO', t.nextTrip.pass.dest],
                 ['ARRIVES', t.nextTrip.pass.arrives],
                 ['SEAT', t.nextTrip.pass.seat],

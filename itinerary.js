@@ -258,7 +258,7 @@ export const content = {
       subtitle: 'Sat Nov 7 – Sun Nov 8, 2026',
       pass: { dest: 'London', arrives: '07 NOV', seat: 'Window' },
       blurb:
-        "Landing in London Saturday morning — so we're keeping the first weekend low-key and bookish: ease into the jet lag with a lazy afternoon in one London bookshop, then a day trip to Oxford for the real cathedral of books.",
+        "Landing in London Saturday morning — so we're keeping the first weekend low-key and chill: ease into the jet lag with a lazy afternoon in one London bookshop, then a day trip to Oxford for the real cathedral of books.",
       day1: {
         tag: '▸ DAY 1 · SATURDAY',
         title: 'Landing Day — One Bookshop, No Rush',
@@ -383,7 +383,7 @@ export const content = {
         key: 'stonehenge',
         title: 'Option C — Stonehenge & Salisbury',
         subtitle: '~1.5–2hrs each way · trains from Waterloo + a short bus/taxi',
-        blurb: "Less bookish, more history — but Salisbury Cathedral's medieval chained library and its own original 1215 Magna Carta echo the British Library stop from Day 1 nicely.",
+        blurb: "Less bookish, more history — but Salisbury Cathedral's medieval chained library and its own original 1215 Magna Carta still keep it on theme.",
         plan: [
           {
             time: '8:30 AM',
@@ -805,7 +805,7 @@ export const content = {
         key: 'stonehenge',
         title: '方案C — 巨石阵与索尔兹伯里',
         subtitle: '单程约1.5–2小时 · 滑铁卢站出发 + 短途巴士/出租车',
-        blurb: '书卷气少一点,历史感多一点 — 不过索尔兹伯里座堂的中世纪锁链图书馆和它自己的一份原版1215年《大宪章》,正好和第一天去的大英图书馆呼应上。',
+        blurb: '书卷气少一点,历史感多一点 — 不过索尔兹伯里座堂的中世纪锁链图书馆和它自己的一份原版1215年《大宪章》,也算没跑题。',
         plan: [
           {
             time: '上午8:30',

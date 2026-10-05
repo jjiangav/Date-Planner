@@ -97,10 +97,19 @@ function useOnboarding() {
   return { lang, setLang, user, setUser, step, unlock };
 }
 
-function Stars() {
+// Top-down plane silhouette, nose pointing along +x so animateMotion can steer it.
+const PLANE_PATH =
+  'M12 0 L4 -1.5 L-2 -10 L-5 -10 L-2 -1.5 L-8 -1.2 L-10.5 -4.5 L-12.5 -4.5 L-11 0 L-12.5 4.5 L-10.5 4.5 L-8 1.2 L-2 1.5 L-5 10 L-2 10 L4 1.5 Z';
+
+const FLIGHT_ROUTES = [
+  { id: 'route-a', d: 'M-50 430 Q 500 60 1050 330', duration: 46, begin: 0 },
+  { id: 'route-b', d: 'M1050 520 Q 480 260 -50 150', duration: 58, begin: -20 },
+];
+
+function Sky() {
   const stars = useMemo(
     () =>
-      Array.from({ length: 60 }, (_, i) => ({
+      Array.from({ length: 45 }, (_, i) => ({
         id: i,
         top: Math.random() * 100,
         left: Math.random() * 100,
@@ -109,9 +118,13 @@ function Stars() {
       })),
     []
   );
+  const reducedMotion = useMemo(
+    () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
+    []
+  );
 
   return (
-    <div className="stars" aria-hidden="true">
+    <div className="sky" aria-hidden="true">
       {stars.map((s) => (
         <span
           key={s.id}
@@ -125,6 +138,24 @@ function Stars() {
           }}
         />
       ))}
+      <svg className="flight-routes" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+        {FLIGHT_ROUTES.map((route) => (
+          <path key={route.id} id={route.id} className="flight-route" d={route.d} />
+        ))}
+        {!reducedMotion &&
+          FLIGHT_ROUTES.map((route) => (
+            <path key={route.id} className="sky-plane" d={PLANE_PATH}>
+              <animateMotion
+                dur={`${route.duration}s`}
+                begin={`${route.begin}s`}
+                repeatCount="indefinite"
+                rotate="auto"
+              >
+                <mpath href={`#${route.id}`} />
+              </animateMotion>
+            </path>
+          ))}
+      </svg>
     </div>
   );
 }
@@ -135,17 +166,17 @@ function Hud({ lang, onToggleLang }) {
 
   return (
     <div className="hud">
-      <span className="hud-mobile-hide" aria-hidden="true">NIGHT MODE</span>
+      <span className="hud-mobile-hide" aria-hidden="true">DEPARTURES</span>
       <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
-      <span aria-hidden="true">ISO 3200</span>
+      <span aria-hidden="true">✈ JZ 1107</span>
       <span className="hud-sep" aria-hidden="true">·</span>
-      <span aria-hidden="true">f/2.8</span>
-      <span className="hud-sep" aria-hidden="true">·</span>
-      <span aria-hidden="true">1/15s</span>
+      <span aria-hidden="true">TO LON</span>
+      <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
+      <span className="hud-mobile-hide" aria-hidden="true">GATE 07</span>
       <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
       <span className="hud-mobile-hide" aria-hidden="true">{time}</span>
       <span className="hud-sep" aria-hidden="true">·</span>
-      <span aria-hidden="true">🔋87%</span>
+      <span className="hud-status" aria-hidden="true">ON TIME</span>
       <span className="hud-sep" aria-hidden="true">·</span>
       <LangToggle lang={lang} onToggle={onToggleLang} />
     </div>
@@ -543,12 +574,40 @@ function App() {
         onAccept={() => setProposalAccepted(true)}
         onClose={closeProposal}
       />
-      <Stars />
+      <Sky />
       <Hud lang={lang} onToggleLang={setLang} />
 
       <section className="section next-date-section">
-        <h2><span className="section-tag">{t.nextTrip.tag}</span>{t.nextTrip.title}</h2>
-        <p className="section-lead">{t.nextTrip.subtitle}</p>
+        <div className="boarding-pass">
+          <div className="boarding-pass-main">
+            <span className="section-tag">{t.nextTrip.tag}</span>
+            <h2>{t.nextTrip.title}</h2>
+            <div className="boarding-pass-route" aria-hidden="true">
+              <span className="boarding-pass-code">JJ</span>
+              <span className="boarding-pass-track">
+                <span className="boarding-pass-plane">✈</span>
+              </span>
+              <span className="boarding-pass-code">ZZ</span>
+            </div>
+            <p className="boarding-pass-dates">{t.nextTrip.subtitle}</p>
+          </div>
+          <div className="boarding-pass-stub">
+            <dl className="boarding-pass-fields">
+              {[
+                ['FLIGHT', 'JZ 1107'],
+                ['TO', t.nextTrip.pass.dest],
+                ['ARRIVES', t.nextTrip.pass.arrives],
+                ['SEAT', t.nextTrip.pass.seat],
+              ].map(([label, value]) => (
+                <div className="boarding-pass-field" key={label}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+            <span className="boarding-pass-barcode" aria-hidden="true" />
+          </div>
+        </div>
         <p className="section-lead">{t.nextTrip.blurb}</p>
 
         <div className="next-trip-day">

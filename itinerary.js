@@ -267,7 +267,7 @@ export const content = {
       day2: {
         tag: '▸ DAY 2 · SUNDAY',
         title: 'Day Trip — Pick One',
-        lead: "Not decided yet — three options below, all doable there-and-back in a day.",
+        lead: "Not decided yet — three options below, all doable there-and-back in a day, with dinner at Bacchanalia once we're back in London.",
       },
     },
     day1Plan: [
@@ -290,6 +290,16 @@ export const content = {
         icon: '🍽️',
       },
     ],
+    day2Dinner: {
+      title: 'Dinner — Bacchanalia, Mayfair',
+      subtitle: 'Back in London · whichever trip we pick',
+      step: {
+        time: 'Evening',
+        title: 'Set menu at Bacchanalia',
+        blurb: 'Wherever the day takes us, we end it on Mount Street in Mayfair — Greek- and Roman-inspired food in a very over-the-top room. The Sunday set menu runs from 5pm.',
+        icon: '🏛️',
+      },
+    },
     day2Options: [
       {
         key: 'oxford',
@@ -689,7 +699,7 @@ export const content = {
       day2: {
         tag: '▸ 第二天 · 周日',
         title: '一日游 — 三选一',
-        lead: '还没定 — 下面三个选项,都能当天往返。',
+        lead: '还没定 — 下面三个选项,都能当天往返,回到伦敦后去 Bacchanalia 吃晚饭。',
       },
     },
     day1Plan: [
@@ -712,6 +722,16 @@ export const content = {
         icon: '🍽️',
       },
     ],
+    day2Dinner: {
+      title: '晚餐 — Bacchanalia,梅费尔',
+      subtitle: '回到伦敦之后 · 不管选哪条线',
+      step: {
+        time: '晚上',
+        title: 'Bacchanalia 套餐晚餐',
+        blurb: '不管白天去了哪,晚上都回到梅费尔的 Mount Street 吃饭 — 希腊罗马风的菜,餐厅装潢非常浮夸。周日套餐下午5点开始供应。',
+        icon: '🏛️',
+      },
+    },
     day2Options: [
       {
         key: 'oxford',

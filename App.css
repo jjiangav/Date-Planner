@@ -101,6 +101,12 @@ body {
   color: rgba(247, 223, 168, 0.35);
 }
 
+.hud-countdown {
+  color: var(--gold);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
 .hud-status {
   color: #8fe3a8;
 }

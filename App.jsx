@@ -4,6 +4,8 @@ import RouteMap from './RouteMap';
 import { content } from './itinerary';
 
 const TARGET_DATE = new Date('2026-08-28T20:00:00+01:00');
+// TS122 scheduled departure — PLACEHOLDER until the real time is confirmed.
+const DEPARTURE_DATE = new Date('2026-11-06T21:00:00-05:00');
 const STORAGE_KEY = 'thames-night-walk-checklist';
 const LANG_KEY = 'thames-night-walk-lang';
 const USER_KEY = 'thames-night-walk-user';
@@ -29,15 +31,6 @@ function useCountdown(target) {
   const seconds = Math.floor((diff / 1000) % 60);
 
   return { days, hours, minutes, seconds, done: diff === 0 };
-}
-
-function useClock() {
-  const [now, setNow] = useState(() => new Date());
-  useEffect(() => {
-    const id = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  return now;
 }
 
 function useOnboarding() {
@@ -161,8 +154,8 @@ function Sky() {
 }
 
 function Hud({ lang, onToggleLang }) {
-  const now = useClock();
-  const time = now.toLocaleTimeString('en-GB', { hour12: false });
+  const { days, hours, minutes, seconds, done } = useCountdown(DEPARTURE_DATE);
+  const pad = (n) => String(n).padStart(2, '0');
 
   return (
     <div className="hud">
@@ -171,12 +164,19 @@ function Hud({ lang, onToggleLang }) {
       <span aria-hidden="true">✈ TS122</span>
       <span className="hud-sep" aria-hidden="true">·</span>
       <span aria-hidden="true">TO LON</span>
-      <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
-      <span className="hud-mobile-hide" aria-hidden="true">GATE 07</span>
-      <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
-      <span className="hud-mobile-hide" aria-hidden="true">{time}</span>
       <span className="hud-sep" aria-hidden="true">·</span>
-      <span className="hud-status" aria-hidden="true">ON TIME</span>
+      {done ? (
+        <span className="hud-status">DEPARTED</span>
+      ) : (
+        <>
+          <span className="hud-countdown" role="timer">
+            <span className="hud-mobile-hide">DEPARTS IN </span>
+            {days}D {pad(hours)}:{pad(minutes)}:{pad(seconds)}
+          </span>
+          <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
+          <span className="hud-status hud-mobile-hide" aria-hidden="true">ON TIME</span>
+        </>
+      )}
       <span className="hud-sep" aria-hidden="true">·</span>
       <LangToggle lang={lang} onToggle={onToggleLang} />
     </div>

@@ -6,6 +6,12 @@ import boroughMarketImg from './images/borough-market.jpg';
 import shardImg from './images/shard.jpg';
 import towerBridgeImg from './images/tower-bridge.jpg';
 import canaryWharfImg from './images/canary-wharf.webp';
+import bacchanaliaImg from './images/bacchanalia.jpg';
+import maisonAssoulineImg from './images/maison-assouline.jpg';
+import oxfordImg from './images/oxford.jpg';
+import cambridgeImg from './images/cambridge.jpg';
+import stonehengeImg from './images/stonehenge.jpg';
+import uffingtonImg from './images/uffington-white-horse.jpg';
 
 export const content = {
   en: {
@@ -282,6 +288,7 @@ export const content = {
         title: 'Maison Assouline, Piccadilly',
         blurb: "One bookshop, the whole afternoon — Assouline's flagship, more library lounge than shop, with Swans Bar inside for when we want to sit with a drink. Pick a pile, find a corner, no clock.",
         icon: '📚',
+        image: maisonAssoulineImg,
       },
       {
         time: 'Evening',
@@ -298,12 +305,56 @@ export const content = {
         title: 'Set menu at Bacchanalia',
         blurb: 'Wherever the day takes us, we end it on Mount Street in Mayfair — Greek- and Roman-inspired food in a very over-the-top room. The Sunday set menu runs from 5pm.',
         icon: '🏛️',
+        image: bacchanaliaImg,
       },
     },
     day2Options: [
       {
+        key: 'roadtrip',
+        images: [
+          { src: stonehengeImg, position: 'center 75%', alt: 'Stonehenge' },
+          { src: uffingtonImg, position: 'center 57%', alt: 'Uffington White Horse' },
+        ],
+        title: 'Option A — Road Trip: Stonehenge + the White Horse',
+        subtitle: '~5hrs driving in total · rental car from London',
+        blurb: "The wildcard — rent a car and spend the day with two of the oldest things in England: the stone circle in the morning, then a 3,000-year-old chalk horse cut into a hillside before sunset. No bookshops, lots of sky, and it wants decent weather.",
+        plan: [
+          {
+            time: '8:00 AM',
+            title: 'Pick up the car, drive west',
+            blurb: 'About two hours out to Salisbury Plain — coffee and a playlist for the road.',
+            icon: '🚗',
+          },
+          {
+            time: '10:00 AM',
+            title: 'Stonehenge',
+            blurb: 'The stone circle itself, before the midday crowds — audio guide included with entry.',
+            icon: '🗿',
+          },
+          {
+            time: '12:00 PM',
+            title: 'Drive north, lunch in Marlborough',
+            blurb: 'Up across the downs towards the White Horse, stopping in the market town of Marlborough for something warm on the way.',
+            icon: '🍽️',
+          },
+          {
+            time: '2:15 PM',
+            title: 'The White Horse & Dragon Hill',
+            blurb: "Britain's oldest chalk figure, around 3,000 years old and over 100 metres long. Just below it is Dragon Hill, where St George is said to have slain the dragon — and on top, the Iron Age ramparts of Uffington Castle.",
+            icon: '🐎',
+          },
+          {
+            time: '4:00 PM',
+            title: 'Drive back to London',
+            blurb: 'Off the hill around sunset and about two hours home along the M4, with time to drop the car before dinner.',
+            icon: '🌙',
+          },
+        ],
+      },
+      {
         key: 'oxford',
-        title: 'Option A — Oxford',
+        image: oxfordImg,
+        title: 'Option B — Oxford',
         subtitle: '~1hr each way · trains from Paddington',
         blurb: "The classic pick — the densest concentration of bookshops and old libraries of the three, plus a direct literary line to tonight's Tolkien/Lewis reading group.",
         plan: [
@@ -347,14 +398,16 @@ export const content = {
       },
       {
         key: 'cambridge',
-        title: 'Option B — Cambridge',
+        image: cambridgeImg,
+        imagePosition: 'center 25%',
+        title: 'Option C — Cambridge',
         subtitle: '~50min each way · trains from King’s Cross',
-        blurb: 'Quieter and less touristy than Oxford, with one of the most beautiful libraries anywhere — and the shortest train ride of the three.',
+        blurb: 'Quieter and less touristy than Oxford, with one of the most beautiful libraries anywhere — and the shorter train ride of the two.',
         plan: [
           {
             time: '9:00 AM',
             title: 'Train from King’s Cross',
-            blurb: 'Direct train to Cambridge, about 50 minutes — the shortest hop of the three options.',
+            blurb: 'Direct train to Cambridge, about 50 minutes — the shortest hop of any option.',
             icon: '🚆',
           },
           {
@@ -385,56 +438,6 @@ export const content = {
             time: '6:00 PM',
             title: 'Train back to London',
             blurb: 'Back at King’s Cross by evening.',
-            icon: '🌙',
-          },
-        ],
-      },
-      {
-        key: 'stonehenge',
-        title: 'Option C — Stonehenge & Salisbury',
-        subtitle: '~1.5–2hrs each way · trains from Waterloo + a short bus/taxi',
-        blurb: "Less bookish, more history — but Salisbury Cathedral's medieval chained library and its own original 1215 Magna Carta still keep it on theme.",
-        plan: [
-          {
-            time: '8:30 AM',
-            title: 'Train from Waterloo to Salisbury',
-            blurb: 'Direct train, about 1.5 hours — the longest travel day of the three options.',
-            icon: '🚆',
-          },
-          {
-            time: '10:15 AM',
-            title: 'Salisbury Cathedral',
-            blurb: "Home to one of the four surviving original 1215 Magna Carta copies, plus the world's oldest working clock.",
-            icon: '📜',
-          },
-          {
-            time: '11:15 AM',
-            title: "The Cathedral's chained library",
-            blurb: 'A genuine medieval chained library open to visitors — books were physically chained to the shelves to stop them being "borrowed".',
-            icon: '⛓️',
-          },
-          {
-            time: '12:30 PM',
-            title: 'Lunch in Salisbury',
-            blurb: 'Something simple in town before heading out to the stones.',
-            icon: '🍽️',
-          },
-          {
-            time: '1:30 PM',
-            title: 'Bus/taxi to Stonehenge',
-            blurb: 'About 20 minutes each way — the Stonehenge Tour bus runs directly from Salisbury station.',
-            icon: '🚌',
-          },
-          {
-            time: '2:00 PM',
-            title: 'Stonehenge',
-            blurb: 'The stone circle itself, audio guide included with entry.',
-            icon: '🗿',
-          },
-          {
-            time: '4:00 PM',
-            title: 'Back to Salisbury, train to London',
-            blurb: 'Round trip home by evening.',
             icon: '🌙',
           },
         ],
@@ -714,6 +717,7 @@ export const content = {
         title: 'Maison Assouline,皮卡迪利',
         blurb: '一家书店,待一整个下午 — Assouline 的旗舰店,与其说是书店,更像一间图书馆休息室,里面还有 Swans Bar,想坐下来喝一杯随时可以。挑一摞书,找个角落,不看时间。',
         icon: '📚',
+        image: maisonAssoulineImg,
       },
       {
         time: '晚上',
@@ -730,12 +734,56 @@ export const content = {
         title: 'Bacchanalia 套餐晚餐',
         blurb: '不管白天去了哪,晚上都回到梅费尔的 Mount Street 吃饭 — 希腊罗马风的菜,餐厅装潢非常浮夸。周日套餐下午5点开始供应。',
         icon: '🏛️',
+        image: bacchanaliaImg,
       },
     },
     day2Options: [
       {
+        key: 'roadtrip',
+        images: [
+          { src: stonehengeImg, position: 'center 75%', alt: '巨石阵' },
+          { src: uffingtonImg, position: 'center 57%', alt: '优芬顿白马' },
+        ],
+        title: '方案A — 自驾游:巨石阵 + 白马',
+        subtitle: '全程开车约5小时 · 从伦敦租车出发',
+        blurb: '一张"外卡" — 租辆车,一天看两样英格兰最古老的东西:上午是巨石阵,日落前再去看刻在山坡上的三千年白垩白马。没有书店,只有大片天空,天气好才值得。',
+        plan: [
+          {
+            time: '上午8:00',
+            title: '取车,一路向西',
+            blurb: '开约两小时到索尔兹伯里平原 — 带上咖啡和路上听的歌单。',
+            icon: '🚗',
+          },
+          {
+            time: '上午10:00',
+            title: '巨石阵',
+            blurb: '赶在中午人多之前看石阵本身 — 门票含语音导览。',
+            icon: '🗿',
+          },
+          {
+            time: '中午12:00',
+            title: '向北开,在马尔伯勒吃午餐',
+            blurb: '翻过丘陵往白马方向开,途中在集镇马尔伯勒(Marlborough)停下来吃点热乎的。',
+            icon: '🍽️',
+          },
+          {
+            time: '下午2:15',
+            title: '白马与龙山',
+            blurb: '英国最古老的白垩山丘图案,约有三千年历史,长一百多米。它正下方就是龙山(Dragon Hill),传说圣乔治在这里屠龙 — 山顶还有铁器时代的优芬顿城堡土垒。',
+            icon: '🐎',
+          },
+          {
+            time: '下午4:00',
+            title: '开车回伦敦',
+            blurb: '日落前后下山,沿M4高速开约两小时回到市区,晚饭前还来得及还车。',
+            icon: '🌙',
+          },
+        ],
+      },
+      {
         key: 'oxford',
-        title: '方案A — 牛津',
+        image: oxfordImg,
+        title: '方案B — 牛津',
         subtitle: '单程约1小时 · 帕丁顿站出发',
         blurb: '最经典的选择 — 三个方案里书店和老图书馆最集中,还跟晚上托尔金/刘易斯读书会那条文学线直接呼应。',
         plan: [
@@ -779,14 +827,16 @@ export const content = {
       },
       {
         key: 'cambridge',
-        title: '方案B — 剑桥',
+        image: cambridgeImg,
+        imagePosition: 'center 25%',
+        title: '方案C — 剑桥',
         subtitle: '单程约50分钟 · 国王十字站出发',
-        blurb: '比牛津安静、游客更少,还有世界上最美的图书馆之一 — 三个方案里车程最短。',
+        blurb: '比牛津安静、游客更少,还有世界上最美的图书馆之一 — 所有方案里车程最短。',
         plan: [
           {
             time: '上午9:00',
             title: '从国王十字站出发',
-            blurb: '直达剑桥的火车,车程约50分钟 — 三个方案里最短的车程。',
+            blurb: '直达剑桥的火车,车程约50分钟 — 所有方案里最短的车程。',
             icon: '🚆',
           },
           {
@@ -817,56 +867,6 @@ export const content = {
             time: '晚上6:00',
             title: '乘火车返回伦敦',
             blurb: '傍晚前回到国王十字站。',
-            icon: '🌙',
-          },
-        ],
-      },
-      {
-        key: 'stonehenge',
-        title: '方案C — 巨石阵与索尔兹伯里',
-        subtitle: '单程约1.5–2小时 · 滑铁卢站出发 + 短途巴士/出租车',
-        blurb: '书卷气少一点,历史感多一点 — 不过索尔兹伯里座堂的中世纪锁链图书馆和它自己的一份原版1215年《大宪章》,也算没跑题。',
-        plan: [
-          {
-            time: '上午8:30',
-            title: '从滑铁卢站乘火车去索尔兹伯里',
-            blurb: '直达火车,车程约1.5小时 — 三个方案里路上花的时间最长。',
-            icon: '🚆',
-          },
-          {
-            time: '上午10:15',
-            title: '索尔兹伯里座堂',
-            blurb: '收藏着现存四份原版1215年《大宪章》中的一份,还有世界上仍在运转的最古老的钟。',
-            icon: '📜',
-          },
-          {
-            time: '上午11:15',
-            title: '座堂的锁链图书馆',
-            blurb: '一座真正的中世纪锁链图书馆,对外开放 — 书本当年被实实在在地锁在书架上,防止被人"借走"。',
-            icon: '⛓️',
-          },
-          {
-            time: '中午12:30',
-            title: '在索尔兹伯里吃午饭',
-            blurb: '去巨石阵之前,在镇上简单吃点东西。',
-            icon: '🍽️',
-          },
-          {
-            time: '下午1:30',
-            title: '乘巴士/出租车去巨石阵',
-            blurb: '单程约20分钟 — Stonehenge Tour巴士从索尔兹伯里站直达。',
-            icon: '🚌',
-          },
-          {
-            time: '下午2:00',
-            title: '巨石阵',
-            blurb: '石圈本身,门票已包含语音讲解器。',
-            icon: '🗿',
-          },
-          {
-            time: '下午4:00',
-            title: '返回索尔兹伯里,乘火车回伦敦',
-            blurb: '傍晚前原路返回。',
             icon: '🌙',
           },
         ],

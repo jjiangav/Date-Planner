@@ -619,6 +619,14 @@ function App() {
           <div className="cards-grid">
             {t.day1Plan.map((step) => (
               <div className="option-card" key={step.title}>
+                {step.image && (
+                  <img
+                    className="option-photo option-photo-square"
+                    src={step.image}
+                    alt={step.title}
+                    loading="lazy"
+                  />
+                )}
                 <span className="option-icon" aria-hidden="true">
                   {step.icon}
                 </span>
@@ -640,6 +648,29 @@ function App() {
               <h4 className="day2-option-title">{option.title}</h4>
               <p className="day2-option-subtitle">{option.subtitle}</p>
               <p className="section-lead">{option.blurb}</p>
+              {option.images && (
+                <div className="day2-option-photos">
+                  {option.images.map((photo) => (
+                    <img
+                      className="day2-option-photo"
+                      style={{ objectPosition: photo.position }}
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      key={photo.alt}
+                    />
+                  ))}
+                </div>
+              )}
+              {option.image && (
+                <img
+                  className="day2-option-photo"
+                  style={{ objectPosition: option.imagePosition }}
+                  src={option.image}
+                  alt={option.title}
+                  loading="lazy"
+                />
+              )}
               <div className="cards-grid">
                 {option.plan.map((step) => (
                   <div className="option-card" key={step.title}>
@@ -658,6 +689,12 @@ function App() {
             <p className="day2-option-subtitle">{t.day2Dinner.subtitle}</p>
             <div className="cards-grid">
               <div className="option-card">
+                <img
+                  className="option-photo option-photo-wide"
+                  src={t.day2Dinner.step.image}
+                  alt={t.day2Dinner.step.title}
+                  loading="lazy"
+                />
                 <span className="option-icon" aria-hidden="true">
                   {t.day2Dinner.step.icon}
                 </span>

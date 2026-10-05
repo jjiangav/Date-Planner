@@ -12,6 +12,8 @@ import oxfordImg from './images/oxford.jpg';
 import cambridgeImg from './images/cambridge.jpg';
 import stonehengeImg from './images/stonehenge.jpg';
 import uffingtonImg from './images/uffington-white-horse.jpg';
+import gatwickExpressImg from './images/gatwick-express.jpg';
+import fishAndChipsImg from './images/fish-and-chips.jpg';
 
 export const content = {
   en: {
@@ -282,6 +284,8 @@ export const content = {
         title: 'Land + check in',
         blurb: 'Land, take the train from Gatwick to the hotel, check in, shower — might take a nap, so chill for a bit.',
         icon: '🛬',
+        image: gatwickExpressImg,
+        imagePosition: '85% center',
       },
       {
         time: 'Afternoon',
@@ -295,6 +299,7 @@ export const content = {
         title: 'The Seashell of Lisson Grove',
         blurb: "Proper fish and chips in Marylebone — a London institution for 60-odd years, and the chips are supposed to be really good.",
         icon: '🍽️',
+        image: fishAndChipsImg,
       },
     ],
     day2Dinner: {
@@ -711,6 +716,8 @@ export const content = {
         title: '落地 + 入住',
         blurb: '落地,从盖特威克坐火车到酒店,办入住,冲个澡 — 可能会睡一觉,先歇一会儿。',
         icon: '🛬',
+        image: gatwickExpressImg,
+        imagePosition: '85% center',
       },
       {
         time: '下午',
@@ -724,6 +731,7 @@ export const content = {
         title: 'The Seashell of Lisson Grove',
         blurb: '马里波恩的正宗炸鱼薯条 — 开了六十多年的伦敦老店,据说薯条特别好吃。',
         icon: '🍽️',
+        image: fishAndChipsImg,
       },
     ],
     day2Dinner: {

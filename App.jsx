@@ -622,6 +622,7 @@ function App() {
                 {step.image && (
                   <img
                     className="option-photo option-photo-square"
+                    style={{ objectPosition: step.imagePosition }}
                     src={step.image}
                     alt={step.title}
                     loading="lazy"

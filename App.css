@@ -342,9 +342,14 @@ main {
 .completed-ribbon {
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   width: fit-content;
   margin: 0 auto 1.5rem;
   padding: 0.6rem 1.25rem;
+  border: none;
   border-radius: 999px;
   background: var(--gold-soft);
   color: var(--navy-deep);
@@ -353,6 +358,20 @@ main {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-align: center;
+  cursor: pointer;
+  appearance: none;
+}
+
+.completed-ribbon:hover,
+.completed-ribbon:focus-visible {
+  filter: brightness(1.05);
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+
+.completed-ribbon-chevron {
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 .completed-trip {

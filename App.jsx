@@ -512,6 +512,7 @@ function App() {
   const t = content[lang];
   const [proposalOpen, setProposalOpen] = useState(false);
   const [proposalAccepted, setProposalAccepted] = useState(false);
+  const [completedOpen, setCompletedOpen] = useState(false);
   const apertureClicks = useRef([]);
 
   const closeProposal = () => {
@@ -602,8 +603,19 @@ function App() {
         <SuggestionForm t={t} />
       </section>
 
-      <div className="completed-ribbon">{t.completedBadge}</div>
+      <button
+        type="button"
+        className="completed-ribbon"
+        onClick={() => setCompletedOpen((v) => !v)}
+        aria-expanded={completedOpen}
+      >
+        {t.completedBadge}
+        <span className="completed-ribbon-chevron" aria-hidden="true">
+          {completedOpen ? '▾' : '▸'}
+        </span>
+      </button>
 
+      {completedOpen && (
       <div className="completed-trip">
         <header className="hero">
         <div className="viewfinder">
@@ -719,6 +731,7 @@ function App() {
         </section>
       </main>
       </div>
+      )}
 
       <footer className="footer">
         <button

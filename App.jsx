@@ -4,8 +4,8 @@ import RouteMap from './RouteMap';
 import { content } from './itinerary';
 
 const TARGET_DATE = new Date('2026-08-28T20:00:00+01:00');
-// TS122 scheduled departure — PLACEHOLDER until the real time is confirmed.
-const DEPARTURE_DATE = new Date('2026-11-06T21:00:00-05:00');
+// TS122 YYZ → LGW, scheduled 10:45 PM Toronto time (EST) on Fri Nov 6.
+const DEPARTURE_DATE = new Date('2026-11-06T22:45:00-05:00');
 const STORAGE_KEY = 'thames-night-walk-checklist';
 const LANG_KEY = 'thames-night-walk-lang';
 const USER_KEY = 'thames-night-walk-user';
@@ -163,7 +163,7 @@ function Hud({ lang, onToggleLang }) {
       <span className="hud-sep hud-mobile-hide" aria-hidden="true">·</span>
       <span aria-hidden="true">✈ TS122</span>
       <span className="hud-sep" aria-hidden="true">·</span>
-      <span aria-hidden="true">TO LON</span>
+      <span aria-hidden="true">YYZ → LGW</span>
       <span className="hud-sep" aria-hidden="true">·</span>
       {done ? (
         <span className="hud-status">DEPARTED</span>

@@ -297,6 +297,48 @@ main {
   font-size: 2rem;
 }
 
+.next-trip-day {
+  margin-top: 2.25rem;
+}
+
+.next-trip-day-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--gold-soft);
+  margin: 0 0 0.4rem;
+}
+
+.day2-option {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(242, 200, 121, 0.25);
+}
+
+.day2-option:first-of-type {
+  margin-top: 1rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.day2-option-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--gold-soft);
+  margin: 0 0 0.2rem;
+}
+
+.day2-option-subtitle {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-dim);
+  margin: 0 0 0.6rem;
+}
+
 .completed-ribbon {
   position: relative;
   z-index: 1;

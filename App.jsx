@@ -546,11 +546,53 @@ function App() {
       <Hud lang={lang} onToggleLang={setLang} />
 
       <section className="section next-date-section">
-        <h2><span className="section-tag">{t.nextDate.tag}</span>{t.nextDate.title}</h2>
-        <p className="section-lead">{t.nextDate.subtitle}</p>
-        <div className="next-date-placeholder">
-          <span aria-hidden="true">✈️</span>
-          <p>{t.nextDate.note}</p>
+        <h2><span className="section-tag">{t.nextTrip.tag}</span>{t.nextTrip.title}</h2>
+        <p className="section-lead">{t.nextTrip.subtitle}</p>
+        <p className="section-lead">{t.nextTrip.blurb}</p>
+
+        <div className="next-trip-day">
+          <h3 className="next-trip-day-title">
+            <span className="section-tag">{t.nextTrip.day1.tag}</span>
+            {t.nextTrip.day1.title}
+          </h3>
+          <p className="section-lead">{t.nextTrip.day1.lead}</p>
+          <div className="cards-grid">
+            {t.day1Plan.map((step) => (
+              <div className="option-card" key={step.title}>
+                <span className="option-icon" aria-hidden="true">
+                  {step.icon}
+                </span>
+                <h3>{step.time} — {step.title}</h3>
+                <p>{step.blurb}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="next-trip-day">
+          <h3 className="next-trip-day-title">
+            <span className="section-tag">{t.nextTrip.day2.tag}</span>
+            {t.nextTrip.day2.title}
+          </h3>
+          <p className="section-lead">{t.nextTrip.day2.lead}</p>
+          {t.day2Options.map((option) => (
+            <div className="day2-option" key={option.key}>
+              <h4 className="day2-option-title">{option.title}</h4>
+              <p className="day2-option-subtitle">{option.subtitle}</p>
+              <p className="section-lead">{option.blurb}</p>
+              <div className="cards-grid">
+                {option.plan.map((step) => (
+                  <div className="option-card" key={step.title}>
+                    <span className="option-icon" aria-hidden="true">
+                      {step.icon}
+                    </span>
+                    <h3>{step.time} — {step.title}</h3>
+                    <p>{step.blurb}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

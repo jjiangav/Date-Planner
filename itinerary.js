@@ -258,7 +258,7 @@ export const content = {
       subtitle: 'Sat Nov 7 – Sun Nov 8, 2026',
       pass: { dest: 'London', arrives: '07 NOV', seat: 'Window' },
       blurb:
-        "Landing in London Saturday morning — so we're keeping the first weekend low-key and chill: ease into the jet lag with a lazy afternoon in one London bookshop, then a day trip to Oxford for the real cathedral of books.",
+        "Landing in London Saturday morning — so we're keeping the first weekend low-key and chill: ease into the jet lag with a lazy afternoon in one London bookshop, then take a trip to explore somewhere new.",
       day1: {
         tag: '▸ DAY 1 · SATURDAY',
         title: 'Landing Day — One Bookshop, No Rush',
@@ -274,7 +274,7 @@ export const content = {
       {
         time: 'Morning',
         title: 'Land + check in',
-        blurb: 'Touch down, get to the room, shower, nap if jet lag hits — no plans before 1pm.',
+        blurb: 'Land, take the train from Gatwick to the hotel, check in, shower — might take a nap, so chill for a bit.',
         icon: '🛬',
       },
       {

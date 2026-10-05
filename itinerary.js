@@ -279,8 +279,8 @@ export const content = {
       },
       {
         time: 'Afternoon',
-        title: 'A bookshop — to be decided',
-        blurb: 'One bookshop, the whole afternoon — which one is still to be decided. Pick a pile, find a corner, no clock.',
+        title: 'Maison Assouline, Piccadilly',
+        blurb: "One bookshop, the whole afternoon — Assouline's flagship, more library lounge than shop, with Swans Bar inside for when we want to sit with a drink. Pick a pile, find a corner, no clock.",
         icon: '📚',
       },
       {
@@ -711,8 +711,8 @@ export const content = {
       },
       {
         time: '下午',
-        title: '一家书店 — 待定',
-        blurb: '一家书店,待一整个下午 — 具体哪家还没定。挑一摞书,找个角落,不看时间。',
+        title: 'Maison Assouline,皮卡迪利',
+        blurb: '一家书店,待一整个下午 — Assouline 的旗舰店,与其说是书店,更像一间图书馆休息室,里面还有 Swans Bar,想坐下来喝一杯随时可以。挑一摞书,找个角落,不看时间。',
         icon: '📚',
       },
       {

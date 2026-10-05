@@ -258,7 +258,7 @@ export const content = {
       subtitle: 'Sat Nov 7 – Sun Nov 8, 2026',
       pass: { dest: 'London', arrives: '07 NOV', seat: 'Window' },
       blurb:
-        "Landing in London Saturday morning, staying through the 14th — so we're keeping the first weekend low-key and bookish: ease into the jet lag with London's best shelves, then a day trip to Oxford for the real cathedral of books.",
+        "Landing in London Saturday morning — so we're keeping the first weekend low-key and bookish: ease into the jet lag with London's best shelves, then a day trip to Oxford for the real cathedral of books.",
       day1: {
         tag: '▸ DAY 1 · SATURDAY',
         title: 'Landing Day — London Bookshops',
@@ -698,7 +698,7 @@ export const content = {
       subtitle: '11月7日(周六)– 11月8日(周日),2026年',
       pass: { dest: '伦敦', arrives: '11月7日', seat: '靠窗' },
       blurb:
-        '周六上午抵达伦敦,一直待到14号 — 所以第一个周末就不安排太多,慢慢倒时差,逛逛伦敦最好的书店,再去牛津一日游,看看真正的"书之殿堂"。',
+        '周六上午抵达伦敦 — 所以第一个周末就不安排太多,慢慢倒时差,逛逛伦敦最好的书店,再去牛津一日游,看看真正的"书之殿堂"。',
       day1: {
         tag: '▸ 第一天 · 周六',
         title: '抵达日 — 伦敦书店',

@@ -262,7 +262,7 @@ export const content = {
       day1: {
         tag: '▸ DAY 1 · SATURDAY',
         title: 'Landing Day — One Bookshop, No Rush',
-        lead: "We land in the morning, so the whole day stays loose — drop bags, nap if we need it, then one bookshop for the afternoon and dinner nearby.",
+        lead: "We land in the morning, so the whole day stays loose — drop bags, nap if we need it, then one bookshop for the afternoon and fish and chips for dinner.",
       },
       day2: {
         tag: '▸ DAY 2 · SUNDAY',
@@ -279,14 +279,14 @@ export const content = {
       },
       {
         time: 'Afternoon',
-        title: 'Foyles, Charing Cross Road',
-        blurb: 'One bookshop, the whole afternoon. Five floors to wander, a café at the top for when we want to sit — pick a pile, find a corner, no clock.',
+        title: 'A bookshop — to be decided',
+        blurb: 'One bookshop, the whole afternoon — which one is still to be decided. Pick a pile, find a corner, no clock.',
         icon: '📚',
       },
       {
         time: 'Evening',
-        title: 'Dinner in central London',
-        blurb: "Wherever we feel like once we're hungry — Soho, Chinatown and Covent Garden are all a few minutes' walk from the shop.",
+        title: 'The Seashell of Lisson Grove',
+        blurb: "Proper fish and chips in Marylebone — a London institution for 60-odd years, and the chips are supposed to be really good.",
         icon: '🍽️',
       },
     ],
@@ -680,11 +680,11 @@ export const content = {
       subtitle: '11月7日(周六)– 11月8日(周日),2026年',
       pass: { dest: '伦敦', arrives: '11月7日', seat: '靠窗' },
       blurb:
-        '周六上午抵达伦敦 — 所以第一个周末就不安排太多,慢慢倒时差,在伦敦找一家书店泡一个下午,再去牛津一日游,看看真正的"书之殿堂"。',
+        '周六上午抵达伦敦 — 所以第一个周末就不安排太多,慢慢倒时差,在伦敦找一家书店泡一个下午,再出门去一个没去过的地方走走。',
       day1: {
         tag: '▸ 第一天 · 周六',
         title: '抵达日 — 一家书店,不赶时间',
-        lead: '上午才落地,所以这一天都很松 — 先放行李,倒时差需要就睡一觉,下午泡一家书店,晚上就在附近吃饭。',
+        lead: '上午才落地,所以这一天都很松 — 先放行李,倒时差需要就睡一觉,下午泡一家书店,晚上去吃炸鱼薯条。',
       },
       day2: {
         tag: '▸ 第二天 · 周日',
@@ -696,19 +696,19 @@ export const content = {
       {
         time: '上午',
         title: '落地 + 入住',
-        blurb: '下飞机,到房间,冲个澡,倒时差的话睡一觉 — 下午1点前什么都不安排。',
+        blurb: '落地,从盖特威克坐火车到酒店,办入住,冲个澡 — 可能会睡一觉,先歇一会儿。',
         icon: '🛬',
       },
       {
         time: '下午',
-        title: 'Foyles,查令十字街',
-        blurb: '一家书店,待一整个下午。五层楼慢慢逛,顶楼有咖啡馆可以坐下来 — 挑一摞书,找个角落,不看时间。',
+        title: '一家书店 — 待定',
+        blurb: '一家书店,待一整个下午 — 具体哪家还没定。挑一摞书,找个角落,不看时间。',
         icon: '📚',
       },
       {
         time: '晚上',
-        title: '伦敦市中心晚餐',
-        blurb: '饿了再决定去哪 — 苏活区、唐人街、考文特花园,从书店走过去都只要几分钟。',
+        title: 'The Seashell of Lisson Grove',
+        blurb: '马里波恩的正宗炸鱼薯条 — 开了六十多年的伦敦老店,据说薯条特别好吃。',
         icon: '🍽️',
       },
     ],

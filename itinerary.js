@@ -265,7 +265,7 @@ export const content = {
       day1: {
         tag: '▸ DAY 1 · SATURDAY',
         title: 'Landing Day — One Bookstore, No Rush',
-        lead: "I land in the morning, so the whole day stays loose — I drop my bags at my hotel and might take a nap, then you can meet me at the bookstore in the afternoon and we'll get fish and chips for dinner.",
+        lead: "I drop my bags at my Airbnb and might take a nap, then you can meet me at the bookstore in the afternoon and we'll get fish and chips for dinner.",
       },
       day2: {
         tag: '▸ DAY 2 · SUNDAY',
@@ -277,7 +277,7 @@ export const content = {
       {
         time: 'Morning',
         title: 'Land + check in',
-        blurb: "I land, take the train from Gatwick to my hotel, check in, shower — might take a nap, so I'll chill for a bit.",
+        blurb: "I land, take the train from Gatwick to my Airbnb, check in, shower — might take a nap, so I'll chill for a bit.",
         icon: '🛬',
         image: gatwickExpressImg,
         imagePosition: '85% center',
@@ -305,7 +305,7 @@ export const content = {
         {
           time: 'Afternoon',
           title: 'Liberty London, the Christmas shop',
-          blurb: 'The big mock-Tudor department store off Regent Street, with a whole floor of Christmas at the top — baubles, ornaments and far too many things we do not need. We each pick one for the other.',
+          blurb: 'The big mock-Tudor department store off Regent Street, with a whole floor of Christmas at the top — baubles, ornaments and far too many things we do not need.',
           icon: '🎄',
           image: libertyChristmasImg,
         },
@@ -430,7 +430,7 @@ export const content = {
           {
             time: 'Late afternoon',
             title: 'Games',
-            blurb: 'Cards, a board game, or something co-op on the laptop — loser orders dinner.',
+            blurb: 'Cards, a board game, or something co-op on the laptop — winner picks dinner.',
             icon: '🎲',
           },
           {
@@ -690,7 +690,7 @@ export const content = {
       day1: {
         tag: '▸ 第一天 · 周六',
         title: '抵达日 — 一家书店,慢慢来',
-        lead: '我上午才落地,所以这天就轻松一点 — 我先回酒店放行李,可能会小睡一下,下午你来书店找我就好,晚上带你去吃炸鱼薯条。',
+        lead: '我先去 Airbnb 放行李,可能会小睡一下,下午你来书店找我就好,晚上带你去吃炸鱼薯条。',
       },
       day2: {
         tag: '▸ 第二天 · 周日',
@@ -702,7 +702,7 @@ export const content = {
       {
         time: '上午',
         title: '落地 + 入住',
-        blurb: '我落地之后从盖特威克坐火车回酒店,办入住、冲个澡 — 可能会眯一会儿,缓一缓。',
+        blurb: '我落地之后从盖特威克坐火车到 Airbnb,办入住、冲个澡 — 可能会眯一会儿,缓一缓。',
         icon: '🛬',
         image: gatwickExpressImg,
         imagePosition: '85% center',
@@ -730,7 +730,7 @@ export const content = {
         {
           time: '下午',
           title: 'Liberty London 圣诞店',
-          blurb: '摄政街旁那栋都铎风格的老百货,顶楼一整层都是圣诞 — 挂饰、小摆件,还有一大堆我们根本不需要的东西。我们给对方各挑一个。',
+          blurb: '摄政街旁那栋都铎风格的老百货,顶楼一整层都是圣诞 — 挂饰、小摆件,还有一大堆我们根本不需要的东西。',
           icon: '🎄',
           image: libertyChristmasImg,
         },
@@ -855,7 +855,7 @@ export const content = {
           {
             time: '傍晚',
             title: '玩游戏',
-            blurb: '扑克、桌游,或者在电脑上玩个双人合作游戏 — 输的人负责点晚餐。',
+            blurb: '扑克、桌游,或者在电脑上玩个双人合作游戏 — 赢的人决定晚餐吃什么。',
             icon: '🎲',
           },
           {

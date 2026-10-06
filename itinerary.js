@@ -260,11 +260,11 @@ export const content = {
       subtitle: 'Sat Nov 7 – Sun Nov 8, 2026',
       pass: { dest: 'London', arrives: '07 NOV', seat: 'Window' },
       blurb:
-        "I land in London Saturday morning — so we're keeping the first weekend low-key and chill: I shake off the jet lag, we meet for a lazy afternoon in one London bookshop, then take a trip to explore somewhere new.",
+        "I land in London Saturday morning — so we're keeping the first weekend low-key and chill: I shake off the jet lag, we meet for a lazy afternoon in one London bookstore, then take a trip to explore somewhere new.",
       day1: {
         tag: '▸ DAY 1 · SATURDAY',
-        title: 'Landing Day — One Bookshop, No Rush',
-        lead: "I land in the morning, so the whole day stays loose — I drop my bags and nap if I need it, then we meet at the bookshop for the afternoon and get fish and chips for dinner.",
+        title: 'Landing Day — One Bookstore, No Rush',
+        lead: "I land in the morning, so the whole day stays loose — I drop my bags at my hotel and might take a nap, then you can meet me at the bookstore in the afternoon and we'll get fish and chips for dinner.",
       },
       day2: {
         tag: '▸ DAY 2 · SUNDAY',
@@ -276,7 +276,7 @@ export const content = {
       {
         time: 'Morning',
         title: 'Land + check in',
-        blurb: "I land, take the train from Gatwick to the hotel, check in, shower — might take a nap, so I'll chill for a bit.",
+        blurb: "I land, take the train from Gatwick to my hotel, check in, shower — might take a nap, so I'll chill for a bit. No need to come out to Gatwick — but if you feel like it, I'd love that too.",
         icon: '🛬',
         image: gatwickExpressImg,
         imagePosition: '85% center',
@@ -284,7 +284,7 @@ export const content = {
       {
         time: 'Afternoon',
         title: 'Maison Assouline, Piccadilly',
-        blurb: "Where we meet up. One bookshop, the whole afternoon — Assouline's flagship, more library lounge than shop, with Swans Bar inside for when we want to sit with a drink. Pick a pile, find a corner, no clock.",
+        blurb: "Where you can meet me. One bookstore, the whole afternoon — Assouline's flagship, more library lounge than shop, with Swans Bar inside for when we want to sit with a drink. Pick a pile, find a corner, no clock.",
         icon: '📚',
         image: maisonAssoulineImg,
       },
@@ -317,7 +317,7 @@ export const content = {
         ],
         title: 'Option A — Road Trip: Stonehenge + the White Horse',
         subtitle: '~5hrs driving in total · rental car from London',
-        blurb: "The wildcard — rent a car and spend the day with two of the oldest things in England: the stone circle in the morning, then a 3,000-year-old chalk horse cut into a hillside before sunset. No bookshops, lots of sky, and it wants decent weather.",
+        blurb: "The wildcard — rent a car and spend the day with two of the oldest things in England: the stone circle in the morning, then a 3,000-year-old chalk horse cut into a hillside before sunset. No bookstores, lots of sky, and it wants decent weather.",
         plan: [
           {
             time: '8:00 AM',
@@ -356,7 +356,7 @@ export const content = {
         image: oxfordImg,
         title: 'Option B — Oxford',
         subtitle: '~1hr each way · trains from Paddington',
-        blurb: "The classic pick — bookshops and old libraries packed into a few streets, plus a direct literary line to tonight's Tolkien/Lewis reading group.",
+        blurb: "The classic pick — bookstores and old libraries packed into a few streets, plus a direct literary line to tonight's Tolkien/Lewis reading group.",
         plan: [
           {
             time: '9:30 AM',
@@ -373,7 +373,7 @@ export const content = {
           {
             time: '12:30 PM',
             title: "Blackwell's Bookshop",
-            blurb: "Legendary Oxford bookshop — don't miss the Norrington Room, an entire subterranean floor of shelving.",
+            blurb: "Legendary Oxford bookstore — don't miss the Norrington Room, an entire subterranean floor of shelving.",
             icon: '📖',
           },
           {
@@ -680,7 +680,7 @@ export const content = {
       day1: {
         tag: '▸ 第一天 · 周六',
         title: '抵达日 — 一家书店,不赶时间',
-        lead: '我上午才落地,所以这一天都很松 — 我先放行李,需要倒时差就睡一觉,下午我们在书店碰面,晚上去吃炸鱼薯条。',
+        lead: '我上午才落地,所以这一天都很松 — 我先把行李放到我住的酒店,可能会睡一觉,下午你可以来书店找我,晚上我们去吃炸鱼薯条。',
       },
       day2: {
         tag: '▸ 第二天 · 周日',
@@ -692,7 +692,7 @@ export const content = {
       {
         time: '上午',
         title: '落地 + 入住',
-        blurb: '我落地后,从盖特威克坐火车到酒店,办入住,冲个澡 — 可能会睡一觉,先歇一会儿。',
+        blurb: '我落地后,从盖特威克坐火车到我住的酒店,办入住,冲个澡 — 可能会睡一觉,先歇一会儿。不用特地来盖特威克接我 — 不过你要是想来,我也会很开心。',
         icon: '🛬',
         image: gatwickExpressImg,
         imagePosition: '85% center',
@@ -700,7 +700,7 @@ export const content = {
       {
         time: '下午',
         title: 'Maison Assouline,皮卡迪利',
-        blurb: '我们在这里碰面。一家书店,待一整个下午 — Assouline 的旗舰店,与其说是书店,更像一间图书馆休息室,里面还有 Swans Bar,想坐下来喝一杯随时可以。挑一摞书,找个角落,不看时间。',
+        blurb: '你可以来这里找我。一家书店,待一整个下午 — Assouline 的旗舰店,与其说是书店,更像一间图书馆休息室,里面还有 Swans Bar,想坐下来喝一杯随时可以。挑一摞书,找个角落,不看时间。',
         icon: '📚',
         image: maisonAssoulineImg,
       },

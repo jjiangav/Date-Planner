@@ -14,6 +14,7 @@ import uffingtonImg from './images/uffington-white-horse.jpg';
 import gatwickExpressImg from './images/gatwick-express.jpg';
 import fishAndChipsImg from './images/fish-and-chips.jpg';
 import movieNightImg from './images/movie-night.jpg';
+import libertyChristmasImg from './images/liberty-christmas.jpg';
 
 export const content = {
   en: {
@@ -296,17 +297,26 @@ export const content = {
         image: fishAndChipsImg,
       },
     ],
-    wednesdayDinner: {
-      tag: '▸ WEDNESDAY NIGHT · NOV 11',
-      title: 'Dinner at Bacchanalia',
-      lead: 'One dressed-up night in the middle of the week.',
-      step: {
-        time: 'Evening',
-        title: 'Bacchanalia, Mayfair',
-        blurb: 'Dinner on Mount Street in Mayfair — Greek- and Roman-inspired food in a very over-the-top room.',
-        icon: '🏛️',
-        image: bacchanaliaImg,
-      },
+    wednesday: {
+      tag: '▸ WEDNESDAY · NOV 11',
+      title: 'Liberty at Christmas, then Bacchanalia',
+      lead: 'One dressed-up day in the middle of the week — Christmas shopping in the afternoon, dinner in Mayfair after.',
+      steps: [
+        {
+          time: 'Afternoon',
+          title: 'Liberty London, the Christmas shop',
+          blurb: 'The big mock-Tudor department store off Regent Street, with a whole floor of Christmas at the top — baubles, ornaments and far too many things we do not need. We each pick one for the other.',
+          icon: '🎄',
+          image: libertyChristmasImg,
+        },
+        {
+          time: 'Evening',
+          title: 'Bacchanalia, Mayfair',
+          blurb: 'Dinner on Mount Street in Mayfair — Greek- and Roman-inspired food in a very over-the-top room.',
+          icon: '🏛️',
+          image: bacchanaliaImg,
+        },
+      ],
     },
     day2Options: [
       {
@@ -712,17 +722,26 @@ export const content = {
         image: fishAndChipsImg,
       },
     ],
-    wednesdayDinner: {
-      tag: '▸ 周三晚上 · 11月11日',
-      title: 'Bacchanalia 晚餐',
-      lead: '一周中间,好好打扮出门吃一顿。',
-      step: {
-        time: '晚上',
-        title: 'Bacchanalia,梅费尔',
-        blurb: '在梅费尔的 Mount Street 吃晚饭 — 希腊罗马风的菜,餐厅装潢非常浮夸。',
-        icon: '🏛️',
-        image: bacchanaliaImg,
-      },
+    wednesday: {
+      tag: '▸ 周三 · 11月11日',
+      title: 'Liberty 圣诞店,然后去 Bacchanalia',
+      lead: '一周中间,好好打扮出门玩一天 — 下午逛圣诞店,晚上去梅费尔吃饭。',
+      steps: [
+        {
+          time: '下午',
+          title: 'Liberty London 圣诞店',
+          blurb: '摄政街旁那栋都铎风格的老百货,顶楼一整层都是圣诞 — 挂饰、小摆件,还有一大堆我们根本不需要的东西。我们给对方各挑一个。',
+          icon: '🎄',
+          image: libertyChristmasImg,
+        },
+        {
+          time: '晚上',
+          title: 'Bacchanalia,梅费尔',
+          blurb: '在梅费尔的 Mount Street 吃晚饭 — 希腊罗马风的菜,餐厅装潢非常浮夸。',
+          icon: '🏛️',
+          image: bacchanaliaImg,
+        },
+      ],
     },
     day2Options: [
       {

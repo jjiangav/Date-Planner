@@ -575,24 +575,28 @@ function App() {
 
         <div className="next-trip-day">
           <h3 className="next-trip-day-title">
-            <span className="section-tag">{t.wednesdayDinner.tag}</span>
-            {t.wednesdayDinner.title}
+            <span className="section-tag">{t.wednesday.tag}</span>
+            {t.wednesday.title}
           </h3>
-          <p className="section-lead">{t.wednesdayDinner.lead}</p>
+          <p className="section-lead">{t.wednesday.lead}</p>
           <div className="cards-grid">
-            <div className="option-card">
-              <img
-                className="option-photo option-photo-wide"
-                src={t.wednesdayDinner.step.image}
-                alt={t.wednesdayDinner.step.title}
-                loading="lazy"
-              />
-              <span className="option-icon" aria-hidden="true">
-                {t.wednesdayDinner.step.icon}
-              </span>
-              <h3>{t.wednesdayDinner.step.time} — {t.wednesdayDinner.step.title}</h3>
-              <p>{t.wednesdayDinner.step.blurb}</p>
-            </div>
+            {t.wednesday.steps.map((step) => (
+              <div className="option-card" key={step.title}>
+                {step.image && (
+                  <img
+                    className="option-photo option-photo-wide"
+                    src={step.image}
+                    alt={step.title}
+                    loading="lazy"
+                  />
+                )}
+                <span className="option-icon" aria-hidden="true">
+                  {step.icon}
+                </span>
+                <h3>{step.time} — {step.title}</h3>
+                <p>{step.blurb}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

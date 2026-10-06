@@ -254,23 +254,17 @@ export const content = {
     ],
     footer: 'JJ + ZZ — can’t wait for Friday.',
     mapAriaLabel: 'Map of the route from Westminster to Tower Bridge, then Canary Wharf',
-    proposal: {
-      question: 'Will you be my girlfriend?',
-      yes: 'Yes',
-      think: "I'll think about it",
-      accepted: "She said yes 🎉",
-    },
     nextTrip: {
       tag: '▸ NEXT UP',
       title: 'Catching flights and feelings',
       subtitle: 'Sat Nov 7 – Sun Nov 8, 2026',
       pass: { dest: 'London', arrives: '07 NOV', seat: 'Window' },
       blurb:
-        "Landing in London Saturday morning — so we're keeping the first weekend low-key and chill: ease into the jet lag with a lazy afternoon in one London bookshop, then take a trip to explore somewhere new.",
+        "I land in London Saturday morning — so we're keeping the first weekend low-key and chill: I shake off the jet lag, we meet for a lazy afternoon in one London bookshop, then take a trip to explore somewhere new.",
       day1: {
         tag: '▸ DAY 1 · SATURDAY',
         title: 'Landing Day — One Bookshop, No Rush',
-        lead: "We land in the morning, so the whole day stays loose — drop bags, nap if we need it, then one bookshop for the afternoon and fish and chips for dinner.",
+        lead: "I land in the morning, so the whole day stays loose — I drop my bags and nap if I need it, then we meet at the bookshop for the afternoon and get fish and chips for dinner.",
       },
       day2: {
         tag: '▸ DAY 2 · SUNDAY',
@@ -282,7 +276,7 @@ export const content = {
       {
         time: 'Morning',
         title: 'Land + check in',
-        blurb: 'Land, take the train from Gatwick to the hotel, check in, shower — might take a nap, so chill for a bit.',
+        blurb: "I land, take the train from Gatwick to the hotel, check in, shower — might take a nap, so I'll chill for a bit.",
         icon: '🛬',
         image: gatwickExpressImg,
         imagePosition: '85% center',
@@ -290,7 +284,7 @@ export const content = {
       {
         time: 'Afternoon',
         title: 'Maison Assouline, Piccadilly',
-        blurb: "One bookshop, the whole afternoon — Assouline's flagship, more library lounge than shop, with Swans Bar inside for when we want to sit with a drink. Pick a pile, find a corner, no clock.",
+        blurb: "Where we meet up. One bookshop, the whole afternoon — Assouline's flagship, more library lounge than shop, with Swans Bar inside for when we want to sit with a drink. Pick a pile, find a corner, no clock.",
         icon: '📚',
         image: maisonAssoulineImg,
       },
@@ -676,23 +670,17 @@ export const content = {
     ],
     footer: 'JJ + ZZ — 期待星期五的到来。',
     mapAriaLabel: '从威斯敏斯特到塔桥,再到金丝雀码头的路线地图',
-    proposal: {
-      question: '你愿意做我女朋友吗?',
-      yes: '愿意',
-      think: '让我再想想',
-      accepted: '她答应了 🎉',
-    },
     nextTrip: {
       tag: '▸ 下一站',
       title: '追着航班，也追着心动',
       subtitle: '11月7日(周六)– 11月8日(周日),2026年',
       pass: { dest: '伦敦', arrives: '11月7日', seat: '靠窗' },
       blurb:
-        '周六上午抵达伦敦 — 所以第一个周末就不安排太多,慢慢倒时差,在伦敦找一家书店泡一个下午,再出门去一个没去过的地方走走。',
+        '我周六上午抵达伦敦 — 所以第一个周末就不安排太多:我先倒倒时差,然后我们在伦敦一家书店碰面,泡一个下午,再出门去一个没去过的地方走走。',
       day1: {
         tag: '▸ 第一天 · 周六',
         title: '抵达日 — 一家书店,不赶时间',
-        lead: '上午才落地,所以这一天都很松 — 先放行李,倒时差需要就睡一觉,下午泡一家书店,晚上去吃炸鱼薯条。',
+        lead: '我上午才落地,所以这一天都很松 — 我先放行李,需要倒时差就睡一觉,下午我们在书店碰面,晚上去吃炸鱼薯条。',
       },
       day2: {
         tag: '▸ 第二天 · 周日',
@@ -704,7 +692,7 @@ export const content = {
       {
         time: '上午',
         title: '落地 + 入住',
-        blurb: '落地,从盖特威克坐火车到酒店,办入住,冲个澡 — 可能会睡一觉,先歇一会儿。',
+        blurb: '我落地后,从盖特威克坐火车到酒店,办入住,冲个澡 — 可能会睡一觉,先歇一会儿。',
         icon: '🛬',
         image: gatwickExpressImg,
         imagePosition: '85% center',
@@ -712,7 +700,7 @@ export const content = {
       {
         time: '下午',
         title: 'Maison Assouline,皮卡迪利',
-        blurb: '一家书店,待一整个下午 — Assouline 的旗舰店,与其说是书店,更像一间图书馆休息室,里面还有 Swans Bar,想坐下来喝一杯随时可以。挑一摞书,找个角落,不看时间。',
+        blurb: '我们在这里碰面。一家书店,待一整个下午 — Assouline 的旗舰店,与其说是书店,更像一间图书馆休息室,里面还有 Swans Bar,想坐下来喝一杯随时可以。挑一摞书,找个角落,不看时间。',
         icon: '📚',
         image: maisonAssoulineImg,
       },

@@ -9,11 +9,11 @@ import canaryWharfImg from './images/canary-wharf.webp';
 import bacchanaliaImg from './images/bacchanalia.jpg';
 import maisonAssoulineImg from './images/maison-assouline.jpg';
 import oxfordImg from './images/oxford.jpg';
-import cambridgeImg from './images/cambridge.jpg';
 import stonehengeImg from './images/stonehenge.jpg';
 import uffingtonImg from './images/uffington-white-horse.jpg';
 import gatwickExpressImg from './images/gatwick-express.jpg';
 import fishAndChipsImg from './images/fish-and-chips.jpg';
+import movieNightImg from './images/movie-night.jpg';
 
 export const content = {
   en: {
@@ -274,8 +274,8 @@ export const content = {
       },
       day2: {
         tag: '▸ DAY 2 · SUNDAY',
-        title: 'Day Trip — Pick One',
-        lead: "Not decided yet — three options below, all doable there-and-back in a day.",
+        title: 'Sunday — Pick One',
+        lead: "Not decided yet — three options below: two days out, and one where we don't go anywhere at all.",
       },
     },
     day1Plan: [
@@ -362,7 +362,7 @@ export const content = {
         image: oxfordImg,
         title: 'Option B — Oxford',
         subtitle: '~1hr each way · trains from Paddington',
-        blurb: "The classic pick — the densest concentration of bookshops and old libraries of the three, plus a direct literary line to tonight's Tolkien/Lewis reading group.",
+        blurb: "The classic pick — bookshops and old libraries packed into a few streets, plus a direct literary line to tonight's Tolkien/Lewis reading group.",
         plan: [
           {
             time: '9:30 AM',
@@ -403,48 +403,37 @@ export const content = {
         ],
       },
       {
-        key: 'cambridge',
-        image: cambridgeImg,
-        imagePosition: 'center 25%',
-        title: 'Option C — Cambridge',
-        subtitle: '~50min each way · trains from King’s Cross',
-        blurb: 'Quieter and less touristy than Oxford, with one of the most beautiful libraries anywhere — and the shorter train ride of the two.',
+        key: 'stayin',
+        image: movieNightImg,
+        imagePosition: 'center 59%',
+        imageAspect: '16 / 10',
+        title: 'Option C — Stay In: Movies, Games & Room Service',
+        subtitle: 'Zero travel · a really nice hotel room and nowhere to be',
+        blurb: "No trains, no car, no reason needed — if either of us would rather have a slow one, we book a really nice room and don't leave it. Just as good a Sunday as the other two.",
         plan: [
           {
-            time: '9:00 AM',
-            title: 'Train from King’s Cross',
-            blurb: 'Direct train to Cambridge, about 50 minutes — the shortest hop of any option.',
-            icon: '🚆',
+            time: 'Morning',
+            title: 'No alarm, breakfast in bed',
+            blurb: 'Sleep in as long as we like, then room service — or one of us does a pastry and coffee run.',
+            icon: '🥐',
           },
           {
-            time: '10:15 AM',
-            title: 'Wren Library, Trinity College',
-            blurb: "One of the most beautiful libraries in the world — holds Newton's own copy of the Principia and A.A. Milne's handwritten Winnie-the-Pooh manuscripts. Keeps limited hours (sometimes closed Sundays) — worth double-checking before we go.",
-            icon: '📚',
+            time: 'Afternoon',
+            title: 'Movies — Project Hail Mary, maybe Paddington',
+            blurb: 'Ryan Gosling, a very long way from home, trying to save the world — and if we want a second one, a small bear with a marmalade habit loose in London. Blankets, snacks, curtains closed.',
+            icon: '🎬',
           },
           {
-            time: '11:30 AM',
-            title: 'Heffers, Trinity Street',
-            blurb: "Cambridge's own legendary bookshop (now part of Blackwell's), right across from Trinity College.",
-            icon: '📖',
+            time: 'Late afternoon',
+            title: 'Games',
+            blurb: 'Cards, a board game, or something co-op on the laptop — loser orders dinner.',
+            icon: '🎲',
           },
           {
-            time: '1:00 PM',
-            title: 'Lunch at The Eagle',
-            blurb: "The pub where Watson and Crick announced discovering DNA's structure in 1953 — WWII airmen's signatures are still scorched onto the ceiling.",
-            icon: '🍺',
-          },
-          {
-            time: '2:30 PM',
-            title: 'Punting on the River Cam',
-            blurb: 'Glide past the Bridge of Sighs and King’s College Chapel — the quintessential Cambridge view, from the water.',
-            icon: '🛶',
-          },
-          {
-            time: '6:00 PM',
-            title: 'Train back to London',
-            blurb: 'Back at King’s Cross by evening.',
-            icon: '🌙',
+            time: 'Evening',
+            title: 'Dinner in',
+            blurb: "Whatever we're craving, delivered to the door. Hot chocolate, a long bath, an early night.",
+            icon: '🛋️',
           },
         ],
       },
@@ -707,8 +696,8 @@ export const content = {
       },
       day2: {
         tag: '▸ 第二天 · 周日',
-        title: '一日游 — 三选一',
-        lead: '还没定 — 下面三个选项,都能当天往返。',
+        title: '周日 — 三选一',
+        lead: '还没定 — 下面三个选项:两个出门玩,一个哪儿都不去。',
       },
     },
     day1Plan: [
@@ -795,7 +784,7 @@ export const content = {
         image: oxfordImg,
         title: '方案B — 牛津',
         subtitle: '单程约1小时 · 帕丁顿站出发',
-        blurb: '最经典的选择 — 三个方案里书店和老图书馆最集中,还跟晚上托尔金/刘易斯读书会那条文学线直接呼应。',
+        blurb: '最经典的选择 — 书店和老图书馆都挤在几条街里,还跟晚上托尔金/刘易斯读书会那条文学线直接呼应。',
         plan: [
           {
             time: '上午9:30',
@@ -836,48 +825,37 @@ export const content = {
         ],
       },
       {
-        key: 'cambridge',
-        image: cambridgeImg,
-        imagePosition: 'center 25%',
-        title: '方案C — 剑桥',
-        subtitle: '单程约50分钟 · 国王十字站出发',
-        blurb: '比牛津安静、游客更少,还有世界上最美的图书馆之一 — 所有方案里车程最短。',
+        key: 'stayin',
+        image: movieNightImg,
+        imagePosition: 'center 59%',
+        imageAspect: '16 / 10',
+        title: '方案C — 宅在酒店:电影、游戏和客房服务',
+        subtitle: '零通勤 · 一间很舒服的酒店房间,哪儿都不用去',
+        blurb: '不坐火车,不开车,也不需要理由 — 只要我们俩有谁想过个慢一点的周日,就订一间很舒服的房间,一整天不出门。和另外两个方案一样好。',
         plan: [
           {
-            time: '上午9:00',
-            title: '从国王十字站出发',
-            blurb: '直达剑桥的火车,车程约50分钟 — 所有方案里最短的车程。',
-            icon: '🚆',
+            time: '上午',
+            title: '不设闹钟,床上吃早餐',
+            blurb: '想睡到几点就几点,然后叫客房服务 — 或者其中一个人下楼买咖啡和可颂。',
+            icon: '🥐',
           },
           {
-            time: '上午10:15',
-            title: '三一学院,雷恩图书馆',
-            blurb: '世界上最美的图书馆之一 — 收藏着牛顿本人的《自然哲学的数学原理》,还有A.A.米尔恩手写的《小熊维尼》手稿。开放时间有限(周日有时不开),出发前最好再确认一下。',
-            icon: '📚',
+            time: '下午',
+            title: '电影 —《挽救计划》,也许再加《帕丁顿熊》',
+            blurb: '瑞恩·高斯林,离家非常非常远,想办法拯救世界(Project Hail Mary)— 还想再看一部的话,就看那只爱吃橘子酱、在伦敦到处闯祸的小熊。毯子、零食,窗帘拉上。',
+            icon: '🎬',
           },
           {
-            time: '上午11:30',
-            title: 'Heffers 书店,三一街',
-            blurb: '剑桥自己的传奇书店(现属于Blackwell’s),就在三一学院对面。',
-            icon: '📖',
+            time: '傍晚',
+            title: '玩游戏',
+            blurb: '扑克、桌游,或者在电脑上玩个双人合作游戏 — 输的人负责点晚餐。',
+            icon: '🎲',
           },
           {
-            time: '下午1:00',
-            title: '在 The Eagle 吃午饭',
-            blurb: '1953年沃森和克里克就是在这家酒吧宣布发现了DNA结构 — 天花板上还留着二战飞行员烧出来的签名。',
-            icon: '🍺',
-          },
-          {
-            time: '下午2:30',
-            title: '在剑河上撑篙',
-            blurb: '滑过叹息桥和国王学院礁堂 — 从水上看剑桥最经典的风景。',
-            icon: '🛶',
-          },
-          {
-            time: '晚上6:00',
-            title: '乘火车返回伦敦',
-            blurb: '傍晚前回到国王十字站。',
-            icon: '🌙',
+            time: '晚上',
+            title: '在房间吃晚餐',
+            blurb: '想吃什么就点什么,送到门口。热巧克力,泡个澡,早点睡。',
+            icon: '🛋️',
           },
         ],
       },

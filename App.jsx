@@ -666,7 +666,7 @@ function App() {
               {option.image && (
                 <img
                   className="day2-option-photo"
-                  style={{ objectPosition: option.imagePosition }}
+                  style={{ objectPosition: option.imagePosition, aspectRatio: option.imageAspect }}
                   src={option.image}
                   alt={option.title}
                   loading="lazy"

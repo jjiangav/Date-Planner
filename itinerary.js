@@ -276,7 +276,7 @@ export const content = {
       {
         time: 'Morning',
         title: 'Land + check in',
-        blurb: "I land, take the train from Gatwick to my hotel, check in, shower — might take a nap, so I'll chill for a bit. No need to come out to Gatwick — but if you feel like it, I'd love that too.",
+        blurb: "I land, take the train from Gatwick to my hotel, check in, shower — might take a nap, so I'll chill for a bit.",
         icon: '🛬',
         image: gatwickExpressImg,
         imagePosition: '85% center',
@@ -676,11 +676,11 @@ export const content = {
       subtitle: '11月7日(周六)– 11月8日(周日),2026年',
       pass: { dest: '伦敦', arrives: '11月7日', seat: '靠窗' },
       blurb:
-        '我周六上午抵达伦敦 — 所以第一个周末就不安排太多:我先倒倒时差,然后我们在伦敦一家书店碰面,泡一个下午,再出门去一个没去过的地方走走。',
+        '我周六上午到伦敦 — 所以第一个周末就不排太满啦:我先缓一缓时差,下午我们在书店见面,慢慢泡一个下午,然后再一起去个没去过的地方走走。',
       day1: {
         tag: '▸ 第一天 · 周六',
-        title: '抵达日 — 一家书店,不赶时间',
-        lead: '我上午才落地,所以这一天都很松 — 我先把行李放到我住的酒店,可能会睡一觉,下午你可以来书店找我,晚上我们去吃炸鱼薯条。',
+        title: '抵达日 — 一家书店,慢慢来',
+        lead: '我上午才落地,所以这天就轻松一点 — 我先回酒店放行李,可能会小睡一下,下午你来书店找我就好,晚上带你去吃炸鱼薯条。',
       },
       day2: {
         tag: '▸ 第二天 · 周日',
@@ -692,7 +692,7 @@ export const content = {
       {
         time: '上午',
         title: '落地 + 入住',
-        blurb: '我落地后,从盖特威克坐火车到我住的酒店,办入住,冲个澡 — 可能会睡一觉,先歇一会儿。不用特地来盖特威克接我 — 不过你要是想来,我也会很开心。',
+        blurb: '我落地之后从盖特威克坐火车回酒店,办入住、冲个澡 — 可能会眯一会儿,缓一缓。',
         icon: '🛬',
         image: gatwickExpressImg,
         imagePosition: '85% center',
@@ -700,14 +700,14 @@ export const content = {
       {
         time: '下午',
         title: 'Maison Assouline,皮卡迪利',
-        blurb: '你可以来这里找我。一家书店,待一整个下午 — Assouline 的旗舰店,与其说是书店,更像一间图书馆休息室,里面还有 Swans Bar,想坐下来喝一杯随时可以。挑一摞书,找个角落,不看时间。',
+        blurb: '下午来这里找我吧。一家书店,待一整个下午 — Assouline 的旗舰店,与其说是书店,更像一间图书馆休息室,里面还有 Swans Bar,想坐下来喝一杯随时都可以。挑一摞书,找个角落,不用看时间。',
         icon: '📚',
         image: maisonAssoulineImg,
       },
       {
         time: '晚上',
         title: 'The Seashell of Lisson Grove',
-        blurb: '马里波恩的正宗炸鱼薯条 — 开了六十多年的伦敦老店,据说薯条特别好吃。',
+        blurb: '马里波恩的正宗炸鱼薯条 — 开了六十多年的伦敦老店,听说薯条特别好吃,带你去尝尝。',
         icon: '🍽️',
         image: fishAndChipsImg,
       },

@@ -275,7 +275,7 @@ export const content = {
       day2: {
         tag: '▸ DAY 2 · SUNDAY',
         title: 'Day Trip — Pick One',
-        lead: "Not decided yet — three options below, all doable there-and-back in a day, with dinner at Bacchanalia once we're back in London.",
+        lead: "Not decided yet — three options below, all doable there-and-back in a day.",
       },
     },
     day1Plan: [
@@ -302,13 +302,14 @@ export const content = {
         image: fishAndChipsImg,
       },
     ],
-    day2Dinner: {
-      title: 'Dinner — Bacchanalia, Mayfair',
-      subtitle: 'Back in London · whichever trip we pick',
+    wednesdayDinner: {
+      tag: '▸ WEDNESDAY NIGHT · NOV 11',
+      title: 'Dinner at Bacchanalia',
+      lead: 'One dressed-up night in the middle of the week.',
       step: {
         time: 'Evening',
-        title: 'Set menu at Bacchanalia',
-        blurb: 'Wherever the day takes us, we end it on Mount Street in Mayfair — Greek- and Roman-inspired food in a very over-the-top room. The Sunday set menu runs from 5pm.',
+        title: 'Bacchanalia, Mayfair',
+        blurb: 'Dinner on Mount Street in Mayfair — Greek- and Roman-inspired food in a very over-the-top room.',
         icon: '🏛️',
         image: bacchanaliaImg,
       },
@@ -707,7 +708,7 @@ export const content = {
       day2: {
         tag: '▸ 第二天 · 周日',
         title: '一日游 — 三选一',
-        lead: '还没定 — 下面三个选项,都能当天往返,回到伦敦后去 Bacchanalia 吃晚饭。',
+        lead: '还没定 — 下面三个选项,都能当天往返。',
       },
     },
     day1Plan: [
@@ -734,13 +735,14 @@ export const content = {
         image: fishAndChipsImg,
       },
     ],
-    day2Dinner: {
-      title: '晚餐 — Bacchanalia,梅费尔',
-      subtitle: '回到伦敦之后 · 不管选哪条线',
+    wednesdayDinner: {
+      tag: '▸ 周三晚上 · 11月11日',
+      title: 'Bacchanalia 晚餐',
+      lead: '一周中间,好好打扮出门吃一顿。',
       step: {
         time: '晚上',
-        title: 'Bacchanalia 套餐晚餐',
-        blurb: '不管白天去了哪,晚上都回到梅费尔的 Mount Street 吃饭 — 希腊罗马风的菜,餐厅装潢非常浮夸。周日套餐下午5点开始供应。',
+        title: 'Bacchanalia,梅费尔',
+        blurb: '在梅费尔的 Mount Street 吃晚饭 — 希腊罗马风的菜,餐厅装潢非常浮夸。',
         icon: '🏛️',
         image: bacchanaliaImg,
       },

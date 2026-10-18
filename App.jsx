@@ -1,11 +1,15 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import RouteMap from './RouteMap';
+import RoadTripMap from './RoadTripMap';
+import { monRoute, tueRoute, wedRoute, thuRoute } from './roadtripRoutes';
 import { content } from './itinerary';
 
 const TARGET_DATE = new Date('2026-08-28T20:00:00+01:00');
 // TS122 YYZ → LGW, scheduled 10:45 PM Toronto time (EST) on Fri Nov 6.
 const DEPARTURE_DATE = new Date('2026-11-06T22:45:00-05:00');
+const ROADTRIP_ROUTES = { mon: monRoute, tue: tueRoute, wed: wedRoute, thu: thuRoute };
+const ROADTRIP_START = [51.5154, -0.1755];
 const STORAGE_KEY = 'thames-night-walk-checklist';
 const LANG_KEY = 'thames-night-walk-lang';
 const USER_KEY = 'thames-night-walk-user';
@@ -565,6 +569,73 @@ function App() {
                       {step.icon}
                     </span>
                     <h3>{step.time} — {step.title}</h3>
+                    <p>{step.blurb}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="next-trip-day">
+          <h3 className="next-trip-day-title">
+            <span className="section-tag">{t.roadtrip.tag}</span>
+            {t.roadtrip.title}
+          </h3>
+          <p className="section-lead">{t.roadtrip.lead}</p>
+          <RoadTripMap
+            days={t.roadtrip.days}
+            routes={ROADTRIP_ROUTES}
+            startCoords={ROADTRIP_START}
+            startLabel={t.roadtrip.startLabel}
+            ariaLabel={t.roadtrip.mapAriaLabel}
+          />
+          <ul className="roadtrip-legend" aria-hidden="true">
+            {t.roadtrip.days.map((day) => (
+              <li key={day.key}>
+                <span className={`roadtrip-swatch roadtrip-swatch-${day.key}`} />
+                {day.short}
+              </li>
+            ))}
+            <li><span className="roadtrip-swatch roadtrip-swatch-closed" />{t.roadtrip.legend.closed}</li>
+            <li>{t.roadtrip.legend.hint}</li>
+          </ul>
+          <ul className="roadtrip-notes">
+            {t.roadtrip.notes.map((note) => (
+              <li key={note}>{note}</li>
+            ))}
+          </ul>
+          {t.roadtrip.days.map((day) => (
+            <div className="day2-option" key={day.key}>
+              <h4 className="day2-option-title">{day.title}</h4>
+              <p className="day2-option-subtitle">{day.subtitle}</p>
+              <p className="section-lead">{day.lead}</p>
+              <div className="cards-grid">
+                {day.stops.map((step) => (
+                  <div
+                    className={`option-card${step.closed ? ' option-card-closed' : ''}`}
+                    key={step.title}
+                  >
+                    {step.image && (
+                      <img
+                        className="option-photo option-photo-wide"
+                        style={{ objectPosition: step.imagePosition }}
+                        src={step.image}
+                        alt={step.title}
+                        loading="lazy"
+                      />
+                    )}
+                    <span className="option-icon" aria-hidden="true">
+                      {step.icon}
+                    </span>
+                    <h3>
+                      {step.n && (
+                        <span className={`stop-number stop-number-${step.closed ? 'closed' : day.key}`}>
+                          {step.n}
+                        </span>
+                      )}
+                      {step.time} — {step.title}
+                    </h3>
                     <p>{step.blurb}</p>
                   </div>
                 ))}

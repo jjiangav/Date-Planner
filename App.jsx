@@ -9,7 +9,7 @@ const TARGET_DATE = new Date('2026-08-28T20:00:00+01:00');
 // TS122 YYZ → LGW, scheduled 10:45 PM Toronto time (EST) on Fri Nov 6.
 const DEPARTURE_DATE = new Date('2026-11-06T22:45:00-05:00');
 const ROADTRIP_ROUTES = { mon: monRoute, tue: tueRoute, wed: wedRoute, thu: thuRoute };
-const ROADTRIP_START = [51.5154, -0.1755];
+const ROADTRIP_START = [51.4818, -0.4086];
 const STORAGE_KEY = 'thames-night-walk-checklist';
 const LANG_KEY = 'thames-night-walk-lang';
 const USER_KEY = 'thames-night-walk-user';
@@ -536,9 +536,9 @@ function App() {
           <p className="section-lead">{t.nextTrip.day2.lead}</p>
           {t.day2Options.map((option) => (
             <div className="day2-option" key={option.key}>
-              <h4 className="day2-option-title">{option.title}</h4>
-              <p className="day2-option-subtitle">{option.subtitle}</p>
-              <p className="section-lead">{option.blurb}</p>
+              {option.title && <h4 className="day2-option-title">{option.title}</h4>}
+              {option.subtitle && <p className="day2-option-subtitle">{option.subtitle}</p>}
+              {option.blurb && <p className="section-lead">{option.blurb}</p>}
               {option.images && (
                 <div className="day2-option-photos">
                   {option.images.map((photo) => (
@@ -597,7 +597,9 @@ function App() {
                 {day.short}
               </li>
             ))}
-            <li><span className="roadtrip-swatch roadtrip-swatch-closed" />{t.roadtrip.legend.closed}</li>
+            {t.roadtrip.days.some((day) => day.stops.some((stop) => stop.closed)) && (
+              <li><span className="roadtrip-swatch roadtrip-swatch-closed" />{t.roadtrip.legend.closed}</li>
+            )}
             <li>{t.roadtrip.legend.hint}</li>
           </ul>
           <ul className="roadtrip-notes">
@@ -646,12 +648,12 @@ function App() {
 
         <div className="next-trip-day">
           <h3 className="next-trip-day-title">
-            <span className="section-tag">{t.wednesday.tag}</span>
-            {t.wednesday.title}
+            <span className="section-tag">{t.friday.tag}</span>
+            {t.friday.title}
           </h3>
-          <p className="section-lead">{t.wednesday.lead}</p>
+          <p className="section-lead">{t.friday.lead}</p>
           <div className="cards-grid">
-            {t.wednesday.steps.map((step) => (
+            {t.friday.steps.map((step) => (
               <div className="option-card" key={step.title}>
                 {step.image && (
                   <img
